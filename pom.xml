@@ -64,10 +64,6 @@
             </resource>
             <resource>
                 <directory>${project.basedir}</directory>
-                <includes>
-                    <include>NOTICE</include>
-                    <include>license_third-party/**</include>
-                </includes>
                 <targetPath>${project.build.directory}/classes/META-INF</targetPath>
             </resource>
         </resources>

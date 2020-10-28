@@ -29,25 +29,32 @@ public class SampleResource {
         return content;
     }
 
-    @POST
+    @GET
     @Path("/login")
-    public Response login(@Context ServletContext context) {
-        UriBuilder uriBuilder = UriBuilder.fromUri(URI.create(context.getContextPath()));
-        uriBuilder.path(login.jsp);
-        URI uri = uriBuilder.build();
+    public String showLogin() {
+        String content = "";
+        try {
+            URL url = Resources.getResource("login.jsp");
+            content = Resources.toString(url, StandardCharsets.UTF_8);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
 
-        return Response.seeOther(uri).build();
+        return content;
     }
 
-
-    @POST
+    @GET
     @Path("/registro")
-    public Response login(@Context ServletContext context) {
-        UriBuilder uriBuilder = UriBuilder.fromUri(URI.create(context.getContextPath()));
-        uriBuilder.path(registro.jsp);
-        URI uri = uriBuilder.build();
+    public String showRegistro() {
+        String content = "";
+        try {
+            URL url = Resources.getResource("registro.jsp");
+            content = Resources.toString(url, StandardCharsets.UTF_8);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
 
-        return Response.seeOther(uri).build();
+        return content;
     }
 
 }

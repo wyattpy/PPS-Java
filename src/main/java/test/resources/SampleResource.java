@@ -29,25 +29,25 @@ public class SampleResource {
         return content;
     }
 
-    @GET
+    @POST
     @Path("/login")
-    public Viewable index(
-            @Context HttpServletRequest request,
-            @Context HttpServletResponse response) throws Exception
-    {
-        request.setAttribute("key", "value");
-        return new Viewable("login.jsp", null);
+    public Response login(@Context ServletContext context) {
+        UriBuilder uriBuilder = UriBuilder.fromUri(URI.create(context.getContextPath()));
+        uriBuilder.path(login.jsp);
+        URI uri = uriBuilder.build();
+
+        return Response.seeOther(uri).build();
     }
 
 
-    @GET
+    @POST
     @Path("/registro")
-    public Viewable index(
-            @Context HttpServletRequest request,
-            @Context HttpServletResponse response) throws Exception
-    {
-        request.setAttribute("key", "value");
-        return new Viewable("registro.jsp", null);
+    public Response login(@Context ServletContext context) {
+        UriBuilder uriBuilder = UriBuilder.fromUri(URI.create(context.getContextPath()));
+        uriBuilder.path(registro.jsp);
+        URI uri = uriBuilder.build();
+
+        return Response.seeOther(uri).build();
     }
 
 }

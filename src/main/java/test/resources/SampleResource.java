@@ -31,7 +31,7 @@ public class SampleResource {
 
     @GET
     @Path("/login")
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.APPLICATION_XML)
     public String showLogin() {
         String content = "";
         try {
@@ -46,7 +46,7 @@ public class SampleResource {
 
     @GET
     @Path("/registro")
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.APPLICATION_XML)
     public String showRegistro() {
         String content = "";
         try {

@@ -31,30 +31,23 @@ public class SampleResource {
 
     @GET
     @Path("/login")
-    public String showLogin() {
-        String content = "";
-        try {
-            URL url = Resources.getResource("login.jsp");
-            content = Resources.toString(url, StandardCharsets.UTF_8);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        return content;
+    public Viewable index(
+            @Context HttpServletRequest request,
+            @Context HttpServletResponse response) throws Exception
+    {
+        request.setAttribute("key", "value");
+        return new Viewable("login.jsp", null);
     }
+
 
     @GET
     @Path("/registro")
-    public String showRegistro() {
-        String content = "";
-        try {
-            URL url = Resources.getResource("registro.jsp");
-            content = Resources.toString(url, StandardCharsets.UTF_8);
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
-        return content;
+    public Viewable index(
+            @Context HttpServletRequest request,
+            @Context HttpServletResponse response) throws Exception
+    {
+        request.setAttribute("key", "value");
+        return new Viewable("registro.jsp", null);
     }
 
 }

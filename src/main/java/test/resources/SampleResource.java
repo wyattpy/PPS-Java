@@ -35,7 +35,7 @@ public class SampleResource {
     public String showLogin() {
         String content = "";
         try {
-            URL url = Resources.getResource("login.html");
+            URL url = Resources.getResource("login.jsp");
             content = Resources.toString(url, StandardCharsets.UTF_8);
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -50,7 +50,7 @@ public class SampleResource {
     public String showRegistro() {
         String content = "";
         try {
-            URL url = Resources.getResource("registro.html");
+            URL url = Resources.getResource("registro.jsp");
             content = Resources.toString(url, StandardCharsets.UTF_8);
         } catch (IOException ioe) {
             ioe.printStackTrace();

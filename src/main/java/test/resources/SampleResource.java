@@ -31,7 +31,6 @@ public class SampleResource {
 
     @GET
     @Path("/login")
-    @Produces("text/html","text/plain")
     public String showLogin() {
         String content = "";
         try {
@@ -46,7 +45,6 @@ public class SampleResource {
 
     @GET
     @Path("/registro")
-    @Produces("text/html","text/plain")
     public String showRegistro() {
         String content = "";
         try {

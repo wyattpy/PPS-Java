@@ -12,6 +12,7 @@
     <div class="toggle">
         <span> Iniciar Sesión</span>
     </div>
+</div>
     <div class="formulario">
         <h2>Crea tu cuenta</h2>
         <form action="#">

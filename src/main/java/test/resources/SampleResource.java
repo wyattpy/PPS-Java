@@ -58,6 +58,21 @@ public class SampleResource {
         return content;
     }
 
+    @GET
+    @Path("/servlet1")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String showNivel() {
+        String content = "";
+        try {
+            URL url = Resources.getResource("servlet1.java");
+            content = Resources.toString(url, StandardCharsets.UTF_8);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        return content;
+    }
+
 }
 
 

@@ -61,6 +61,7 @@ public class SampleResource {
 
     @POST
     @Path("/servlet1")
+    @Produces(MediaType.TEXT_HTML)
     public String showNivel() {
         String content = "";
         try {

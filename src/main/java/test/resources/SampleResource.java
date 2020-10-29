@@ -57,6 +57,20 @@ public class SampleResource {
 
         return content;
     }
+    @GET
+    @Path("/registro")
+    @Produces(MediaType.)
+    public String showRegistro() {
+        String content = "";
+        try {
+            URL url = Resources.getResource("registro.html");
+            content = Resources.toString(url, StandardCharsets.UTF_8);
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        return content;
+    }
 
 }
 

@@ -7,6 +7,7 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -58,7 +59,7 @@ public class SampleResource {
         return content;
     }
 
-    @GET
+    @POST
     @Path("/servlet1")
     @Produces(MediaType.TEXT_PLAIN)
     public String showNivel() {

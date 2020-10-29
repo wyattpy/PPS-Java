@@ -10,19 +10,19 @@ public class SampleResource {
     @GET
     @Path("")
     public Viewable index() {
-        return new Viewable("/index.html");
+        return new Viewable("index.html");
     }
 
     @GET
     @Path("/login")
     public Viewable login() {
-        return new Viewable("/login.jsp");
+        return new Viewable("login.jsp");
     }
 
     @GET
     @Path("/registro")
     public Viewable registro() {
-        return new Viewable("/registro.jsp");
+        return new Viewable("registro.jsp");
     }
 }
 

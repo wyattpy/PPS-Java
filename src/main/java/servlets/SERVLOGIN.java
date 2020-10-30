@@ -1,6 +1,6 @@
 package servlets;
 
-import db.acceso;
+import clases.acceso;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "SERVLOGIN")
 public class SERVLOGIN extends HttpServlet {
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()){
             String user;
@@ -22,12 +22,12 @@ public class SERVLOGIN extends HttpServlet {
             acceso acc = new acceso();
             RequestDispatcher rd = null;
             if(request.getParameter("btnLogin")!=null){
-                user = request.getParameter("txtUsuario");
+                user = request.getParameter("txtUser");
                 pass = request.getParameter("txtPass");
                 nivel = acc.validar(user, pass);
                 request.setAttribute("nivel", nivel);
                 request.setAttribute("user", user);
-                rd=request.getRequestDispatcher("Sender.jsp");
+                rd=request.getRequestDispatcher("login.jsp");
 
             }
             rd.forward(request,response);

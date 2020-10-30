@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar target/sample-application.jar server config.yml
+web: java $JAVA_OPTS -Ddw.server.connector.port=$PORT -jar target/MVC-PRUEBA-1.0-SNAPSHOT.war server config.yml

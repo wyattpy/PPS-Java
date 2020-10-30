@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,6 +10,9 @@
 
 </head>
 <body>
+<div align="left">
+    <a href="/"><img src="https://drive.google.com/uc?export=view&id=1iRAvXNx0rHtzogPV-wwucx72YVdbX7jD" width="50" height="50"></a>
+</div>
 <div class="contenedor-form">
     <div class="toggle">
         <span> Crear cuenta</span>
@@ -15,9 +20,9 @@
     <div class="formulario">
         <h2>Iniciar Sesión</h2>
         <form action="SERVLOGIN" method="post">
-            <input type="text" placeholder="Usuario" required name="txtUsuario">
-            <input type="password" placeholder="Contraseña" required name="txtPass">
-            <input type="submit"  value="Iniciar Sesión" name="btnLogin">
+            <input type="text" name="txtUser" placeholder="Usuario" required>
+            <input type="password" name="txtPass" placeholder="Contraseña" required>
+            <input type="submit"  value="Acceder" name="btnLogin">
         </form>
     </div>
 
@@ -38,5 +43,30 @@
 </div>
     <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
     <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+<%
+    HttpSession sesion = request.getSession();
+    int nivel = 0;
+    if(request.getAttribute("nivel")!=null){
+        nivel = (Integer) request.getAttribute("nivel");
+        if(nivel == 1){
+            sesion.setAttribute("user", request.getAttribute("user"));
+            sesion.setAttribute("nivel", 1);
+            response.sendRedirect("Admin/Admin.jsp");
+        }
+        else{
+            if(nivel == 2){
+                sesion.setAttribute("user", request.getAttribute("user"));
+                sesion.setAttribute("nivel", 2);
+                response.sendRedirect("Usuario/Usuario.jsp");
+            }
+            else{
+                out.println("<script>alert('Usuario o contraseña incorrecta');</script>");
+            }
+        }
+    }
+    if(request.getParameter("cerrar")!=null){
+        sesion.invalidate();
+    }
+%>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package db;
+package clases;
 
 public class database {
     String url;
@@ -7,7 +7,7 @@ public class database {
     String driver;
 
     public database(){
-        this.url="postgres://sgtxpfhzquxnoq:8f88fdcf053384491c02727cf5f8464bc939a7663ac934e6e10f03c44963808b@ec2-23-20-70-32.compute-1.amazonaws.com:5432/dfk5mta8dkdtbl";
+        this.url="jdbc:postgresql://ec2-23-20-70-32.compute-1.amazonaws.com:5432/dfk5mta8dkdtbl";
         this.user="sgtxpfhzquxnoq";
         this.contra="8f88fdcf053384491c02727cf5f8464bc939a7663ac934e6e10f03c44963808b";
         this.driver="org.postgresql.Driver";

@@ -9,6 +9,9 @@
 
 </head>
 <body>
+<div align="left">
+    <a href="/"><img src="https://drive.google.com/uc?export=view&id=1iRAvXNx0rHtzogPV-wwucx72YVdbX7jD" width="50" height="50"></a>
+</div>
 <div class="contenedor-form">
     <div class="toggle">
         <span> Iniciar Sesión</span>

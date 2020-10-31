@@ -51,16 +51,19 @@
         if(nivel == 1){
             sesion.setAttribute("user", request.getAttribute("user"));
             sesion.setAttribute("nivel", 1);
+            out.println("<script>alert('Acceso Exitoso');</script>");
             response.sendRedirect("Admin/Admin.jsp");
         }
         else{
             if(nivel == 2){
                 sesion.setAttribute("user", request.getAttribute("user"));
                 sesion.setAttribute("nivel", 2);
+                out.println("<script>alert('Acceso Exitoso');</script>");
                 response.sendRedirect("Usuario/Usuario.jsp");
             }
             else{
                 out.println("<script>alert('Usuario o contraseña incorrecta');</script>");
+                response.sendRedirect("login.jsp");
             }
         }
     }

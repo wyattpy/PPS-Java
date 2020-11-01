@@ -9,4 +9,4 @@
 
 # Las credenciales de acceso para:
 Admin -> Cedula: 11  Contraseña: 1234
-# Empleado -> Cedula: 12  Contraseña: 1234
+### Empleado -> Cedula: 12  Contraseña: 1234

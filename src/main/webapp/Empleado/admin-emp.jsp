@@ -49,8 +49,7 @@
 						}
 					}
 				%>
-				<br>
-				<%= sesion.getAttribute("nombre")%>
+				<p><%= sesion.getAttribute("nombre")%></p>
 			</center>
 
 			<li class="item" id="profile">

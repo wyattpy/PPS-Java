@@ -43,14 +43,14 @@
             sesion.setAttribute("nombre", request.getAttribute("nombre"));
             sesion.setAttribute("nivel", 1);
             out.println("<script>alert('Acceso Exitoso');</script>");
-            response.sendRedirect("Empleado/admin-emp.jsp");
+            response.sendRedirect("admin-emp.jsp");
         }
         else{
             if(nivel == 2){
                 sesion.setAttribute("nombre", request.getAttribute("nombre"));
                 sesion.setAttribute("nivel", 2);
                 out.println("<script>alert('Acceso Exitoso');</script>");
-                response.sendRedirect("Empleado/admin-emp.jsp");
+                response.sendRedirect("admin-emp.jsp");
             }
             else{
                 out.println("<script>alert('Usuario o contraseña incorrecta');</script>");

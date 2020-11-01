@@ -13,6 +13,15 @@
         <url-pattern>/SERVLOGIN</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SERVALTA</servlet-name>
+        <servlet-class>servlets.SERVALTA</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SERVALTA</servlet-name>
+        <url-pattern>/SERVALTA</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
         <welcome-file>/webapp/index.html</welcome-file>

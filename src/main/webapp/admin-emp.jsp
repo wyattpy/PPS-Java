@@ -57,10 +57,10 @@
 					<i class="fas fa-user-circle"></i><span>Cliente <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
-					<a href="#"><span>Alta Cliente</span></a>
-					<a href="#"><span>Baja Cliente</span></a>
-					<a href="#"><span>Modificación Cliente</span></a>
-					<a href="#"><span>Consulta Cliente</span></a>
+					<a href="alta.jsp"><span>Alta Cliente</span></a>
+					<a href="baja.jsp"><span>Baja Cliente</span></a>
+					<a href="modificar.jsp"><span>Modificación Cliente</span></a>
+					<a href="../manteniminento.html"><span>Consulta Cliente</span></a>
 				</div>
 			</li>
 			<li class="item" id="cars">
@@ -68,10 +68,10 @@
 					<i class="fas fa-car"></i><span>Vehículo <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
-					<a href="#"><span>Alta Vehículo</span></a>
-					<a href="#"><span>Baja Vehículo</span></a>
-					<a href="#"><span>Modificación Vehículo</span></a>
-					<a href="#"><span>Consulta Vehículo</span></a>
+					<a href="../manteniminento.html"><span>Alta Vehículo</span></a>
+					<a href="../manteniminento.html"><span>Baja Vehículo</span></a>
+					<a href="../manteniminento.html"><span>Modificación Vehículo</span></a>
+					<a href="../manteniminento.html"><span>Consulta Vehículo</span></a>
 				</div>
 			</li>
 			<li class="item" id="settings">
@@ -79,8 +79,8 @@
 					<i class="fas fa-cog"></i><span>Configuración <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
-					<a href="#"><i class="fas fa-lock"></i><span>Password</span></a>
-					<a href="#"><i class="fas fa-language"></i><span>Language</span></a>
+					<a href="../manteniminento.html"><i class="fas fa-lock"></i><span>Contraseña</span></a>
+					<a href="../manteniminento.html"><i class="fas fa-language"></i><span>Lenguaje</span></a>
 				</div>
 			</li>
 			<li class="item">

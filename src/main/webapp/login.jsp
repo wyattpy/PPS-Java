@@ -1,5 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page session="true" %>
+<%
+    if(request.getParameter("id")!=null){
+        out.println("<script>alert('La pagina a la que solicita acceder no esta disponible en esta entrega. Verifique el manual de usuario');</script>");
+        response.sendRedirect("index.html");
+    }
+%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,31 +21,16 @@
 </div>
 <div class="contenedor-form">
     <div class="toggle">
-        <span> Crear cuenta</span>
     </div>
     <div class="formulario">
         <h2>Iniciar Sesión</h2>
         <form action="SERVLOGIN" method="post">
-            <input type="text" name="txtUser" placeholder="Usuario" required>
+            <input type="text" name="txtCedula" placeholder="Cedula" required>
             <input type="password" name="txtPass" placeholder="Contraseña" required>
             <input type="submit"  value="Acceder" name="btnLogin">
         </form>
     </div>
 
-    <div class="formulario">
-        <h2>Crea tu cuenta</h2>
-        <form action="#">
-            <input type="text" placeholder="Usuario" required>
-            <input type="password" placeholder="Contraseña" required>
-            <input type="email" placeholder="Correo electronico" required>
-            <input type="text" placeholder="Teléfono" required>
-
-            <input type="submit"  value="Registrarse">
-        </form>
-    </div>
-    <div class="reset-password">
-        <a href="#">Olvidé mi Contraseña</a>
-    </div>
 </div>
     <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
     <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
@@ -49,21 +40,20 @@
     if(request.getAttribute("nivel")!=null){
         nivel = (Integer) request.getAttribute("nivel");
         if(nivel == 1){
-            sesion.setAttribute("user", request.getAttribute("user"));
+            sesion.setAttribute("nombre", request.getAttribute("nombre"));
             sesion.setAttribute("nivel", 1);
             out.println("<script>alert('Acceso Exitoso');</script>");
-            response.sendRedirect("Admin/Admin.jsp");
+            response.sendRedirect("Empleado/admin-emp.jsp");
         }
         else{
             if(nivel == 2){
-                sesion.setAttribute("user", request.getAttribute("user"));
+                sesion.setAttribute("nombre", request.getAttribute("nombre"));
                 sesion.setAttribute("nivel", 2);
                 out.println("<script>alert('Acceso Exitoso');</script>");
-                response.sendRedirect("Usuario/Usuario.jsp");
+                response.sendRedirect("Empleado/admin-emp.jsp");
             }
             else{
                 out.println("<script>alert('Usuario o contraseña incorrecta');</script>");
-                response.sendRedirect("login.jsp");
             }
         }
     }

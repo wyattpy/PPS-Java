@@ -14,22 +14,41 @@ public class acceso {
 
     }
 
-    public int validar(String user, String pass) {
+    public int validar(String cedula, String pass) {
         int nivel = 0;
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT rol FROM public.usuarios where usuario='" + user + "' and password ='" + pass + "'";
+            sql = "SELECT nombre, rol FROM public.usuarios where ci='" + cedula + "' and password ='" + pass + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             while(rs.next()){
-                nivel = rs.getInt(1);
+                nivel = rs.getInt(2);
             }
             con.close();
             rs.close();
             return nivel;
         } catch (SQLException | ClassNotFoundException e) {
             return nivel;
+        }
+    }
+
+    public String obtenerNombre(String cedula, String pass){
+        String nombre ="";
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT nombre, rol FROM public.usuarios where ci='" + cedula + "' and password ='" + pass + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while(rs.next()){
+                nombre = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return nombre;
+        } catch (SQLException | ClassNotFoundException e) {
+            return nombre;
         }
     }
 }

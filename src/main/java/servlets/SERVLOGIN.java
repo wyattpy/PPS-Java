@@ -16,17 +16,20 @@ public class SERVLOGIN extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()){
-            String user;
+            String cedula;
             String pass;
             int nivel = 0;
+            String nombre = "0";
             acceso acc = new acceso();
             RequestDispatcher rd = null;
             if(request.getParameter("btnLogin")!=null){
-                user = request.getParameter("txtUser");
+                cedula = request.getParameter("txtCedula");
                 pass = request.getParameter("txtPass");
-                nivel = acc.validar(user, pass);
+                nivel = acc.validar(cedula, pass);
+                nombre = acc.obtenerNombre(cedula, pass);
                 request.setAttribute("nivel", nivel);
-                request.setAttribute("user", user);
+                request.setAttribute("nombre", nombre);
+                request.setAttribute("cedula", cedula);
                 rd=request.getRequestDispatcher("login.jsp");
 
             }

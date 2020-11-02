@@ -215,5 +215,20 @@ public class acceso {
         }
     }
 
+    public int actualizarDatos(String password, String nombre, String apellido,String telefono, String direccion, String correo){
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "UPDATE into public.cliente SET( pass, nombre, apellido, telefono, direccion, correo) VALUES('"  + password + "','"+ nombre + "','"+ apellido + "','"+ telefono + "','"+ direccion + "','"+ correo + "')";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            con.close();
+            rs.close();
+            return 1;
+        } catch (SQLException | ClassNotFoundException e) {
+            return 0;
+        }
+
+    }
 
 }

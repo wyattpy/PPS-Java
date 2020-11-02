@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    HttpSession sesion = request.getSession();
-%>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -20,7 +18,7 @@
            <div class="formulario" display = none align= center>
              <h1> Modificación de Cliente</h1> <br>
                <h2>Ingrese el cliente a modificar</h2>
-              <form action="SERVMOD" method="POST">
+              <form action="datosCliente.jsp" method="get">
                   <input name= "txtCedula" type="text" placeholder="Cédula" required>
                   <input type="submit"  value="Buscar" name="btnBuscar">
             </form>
@@ -31,5 +29,16 @@
        </div>
            <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
            <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+    <%
+        HttpSession sesion = request.getSession();
+        if(request.getAttribute("nivelA")!=null){
+            if(request.getAttribute("nivelA").equals("1")){
+                response.sendRedirect("datosCliente.jsp");
+            }
+            else{
+                response.sendRedirect("datosCliente.jsp");
+            }
+        }
+    %>
     </body>
 </html>

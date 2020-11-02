@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     HttpSession sesion = request.getSession();
+    String cedula = (String)sesion.getAttribute("txtCedula");
+    response.sendRedirect("SERVMOD");
 %>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,13 +22,13 @@
             <div class="formulario">
                 <h2>Modificar</h2>
                <form action="#" method="post">
-                    <input type="text" placeholder="<%=sesion.getAttribute("nombre")%>" >
-                   <input type="text" placeholder="<%=sesion.getAttribute("apellido")%>" >
-                   <input type="text" placeholder="<%=sesion.getAttribute("direccion")%>" >
-                    <input type="password" placeholder="<%=sesion.getAttribute("contrasena")%>" >
-                    <input type="email" placeholder="<%=sesion.getAttribute("correo")%>" >
-                    <input type="text" placeholder="<%=sesion.getAttribute("telefono")%>" >
-                    <input type="submit"  value="Modificar">
+                    <input name="txtNombre" type="text" placeholder="<%=("txtNombre")%>" >
+                   <input name="txtApellido" type="text" placeholder="<%=sesion.getAttribute("txtApellido")%>" >
+                   <input name="txtDir" type="text" placeholder="<%=sesion.getAttribute("txtDir")%>" >
+                    <input name="txtPass" type="password" placeholder="<%=sesion.getAttribute("txtPass")%>" >
+                    <input name="txtCorreo" type="email" placeholder="<%=sesion.getAttribute("txtCorreo")%>" >
+                    <input name="txtTel" type="text" placeholder="<%=sesion.getAttribute("txtTel")%>" >
+                    <input name="btnMod" type="submit"  value="Modificar">
              </form>
             </div>
             <div class="cancelar">

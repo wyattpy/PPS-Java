@@ -40,6 +40,15 @@
         <url-pattern>/SERVBAJA</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SERVACTU</servlet-name>
+        <servlet-class>servlets.SERVACTU</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SERVACTU</servlet-name>
+        <url-pattern>/SERVACTU</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
         <welcome-file>/webapp/index.html</welcome-file>

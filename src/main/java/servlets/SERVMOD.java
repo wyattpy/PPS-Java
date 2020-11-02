@@ -17,25 +17,29 @@ public class SERVMOD extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         int respues = 9;
         try(PrintWriter out = response.getWriter()){
-            String cedula;
+            String cedula = request.getParameter("txtCedula");
             String nombre;
             String apellido;
             String telefono;
             String direccion;
             String correo;
-            String cotrasena;
+            String contrasena;
             acceso acc = new acceso();
             RequestDispatcher rd = null;
-            if(request.getParameter("btnBuscar")!=null){
-                cedula = request.getParameter("txtCedula");
-                request.setAttribute("nombre",acc.obtenerNombre(cedula));
-                request.setAttribute("apellido",acc.obtenerApellido(cedula));
-                request.setAttribute("telefono",acc.obtenerTelefono(cedula));
-                request.setAttribute("direccion",acc.obtenerDireccion(cedula));
-                request.setAttribute("correo",acc.obtenerCorreo(cedula));
-                request.setAttribute("contrasena",acc.obtenerContrasena(cedula));
-                rd=request.getRequestDispatcher("datosCliente.jsp");
-            }
+            contrasena = acc.obtenerContrasena(cedula);
+            nombre = acc.obtenerNombre(cedula);
+            apellido = acc.obtenerApellido(cedula);
+            telefono = acc.obtenerTelefono(cedula);
+            direccion = acc.obtenerDireccion(cedula);
+            correo = acc.obtenerCorreo(cedula);
+            request.setAttribute("txtNombre", nombre);
+            request.setAttribute("txtApellido", apellido);
+            request.setAttribute("txtTel", telefono);
+            request.setAttribute("txtDir", direccion);
+            request.setAttribute("txtCorreo", correo);
+            request.setAttribute("txtPass", contrasena);
+            request.setAttribute("nivelA",1);
+            rd=request.getRequestDispatcher("modificar.jsp");
             rd.forward(request,response);
         }
     }

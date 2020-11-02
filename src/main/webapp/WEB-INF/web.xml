@@ -22,6 +22,24 @@
         <url-pattern>/SERVALTA</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>SERVMOD</servlet-name>
+        <servlet-class>servlets.SERVMOD</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SERVMOD</servlet-name>
+        <url-pattern>/SERVMOD</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SERVBAJA</servlet-name>
+        <servlet-class>servlets.SERVBAJA</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SERVBAJA</servlet-name>
+        <url-pattern>/SERVBAJA</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
         <welcome-file>/webapp/index.html</welcome-file>

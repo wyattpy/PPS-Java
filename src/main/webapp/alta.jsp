@@ -45,12 +45,13 @@
                if(verdad == 0){
                    out.println("<script>alert('Cedula existente');</script>");
                }
-               if(verdad == 1){
-                   out.println("<script>alert('Cliente guardado con exito');</script>");
+               else{
+                   if(verdad == 1){
+                       out.println("<script>alert('Cliente guardado con exito');</script>");
+                   }
+                   else
+                       out.println("<script>alert('Error desconocido');</script>");
                }
-           }
-           if(request.getParameter("cerrar")!=null){
-               sesion.invalidate();
            }
        %>
     </body>

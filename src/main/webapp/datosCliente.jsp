@@ -15,16 +15,20 @@
        <div class="contenedor-form">
          
            <div  class="toggle">
-               <span> Buscar</span>
+               <span> Desplegar Datos </span>
            </div>
-           <div class="formulario" display = none align= center>
-             <h1> Modificación de Cliente</h1> <br>
-               <h2>Ingrese el cliente a modificar</h2>
-              <form action="SERVMOD" method="POST">
-                  <input name= "txtCedula" type="text" placeholder="Cédula" required>
-                  <input type="submit"  value="Buscar" name="btnBuscar">
-            </form>
-           </div>
+            <div class="formulario">
+                <h2>Modificar</h2>
+               <form action="#" method="post">
+                    <input type="text" placeholder="<%=sesion.getAttribute("nombre")%>" >
+                   <input type="text" placeholder="<%=sesion.getAttribute("apellido")%>" >
+                   <input type="text" placeholder="<%=sesion.getAttribute("direccion")%>" >
+                    <input type="password" placeholder="<%=sesion.getAttribute("contrasena")%>" >
+                    <input type="email" placeholder="<%=sesion.getAttribute("correo")%>" >
+                    <input type="text" placeholder="<%=sesion.getAttribute("telefono")%>" >
+                    <input type="submit"  value="Modificar">
+             </form>
+            </div>
             <div class="cancelar">
                 <a href="admin-emp.jsp"><input type="submit"  value="Cancelar"></a>
               </div>

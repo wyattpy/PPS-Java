@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "SERVMOD")
 public class SERVMOD extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         int respues = 9;
         try(PrintWriter out = response.getWriter()){
@@ -38,7 +38,7 @@ public class SERVMOD extends HttpServlet {
             request.setAttribute("txtDir", direccion);
             request.setAttribute("txtCorreo", correo);
             request.setAttribute("txtPass", contrasena);
-            request.setAttribute("nivelA",1);
+            request.setAttribute("nivelA",2);
             rd=request.getRequestDispatcher("modificar.jsp");
             rd.forward(request,response);
         }

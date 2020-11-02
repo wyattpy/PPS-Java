@@ -26,14 +26,14 @@ public class SERVACTU extends HttpServlet {
             String contrasena = request.getParameter("txtContrasena");
             acceso acc = new acceso() ;
             RequestDispatcher rd = null;
-            if(request.getParameter("btnBuscar")!=null){
-                request.setAttribute("txtNombre", nombre);
-                request.setAttribute("txtApellido", apellido);
-                request.setAttribute("txtTel", telefono);
-                request.setAttribute("txtDir", direccion);
-                request.setAttribute("txtCorreo", correo);
-                request.setAttribute("txtPass", contrasena);
-                acc.actualizarDatos(contrasena,nombre,apellido,telefono,direccion,correo);
+            if(request.getParameter("btnMod")!=null){
+                respues = acc.actualizarDatos(contrasena,nombre,apellido,telefono,direccion,correo, cedula);
+                if(respues == 1){
+                    request.setAttribute("verd", 1);
+                }
+                else {
+                    request.setAttribute("verd", 0);
+                }
                 rd=request.getRequestDispatcher("datosCliente.jsp");
             }
             rd.forward(request,response);

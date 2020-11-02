@@ -1,9 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%
-    HttpSession sesion = request.getSession();
-    String cedula = (String)sesion.getAttribute("txtCedula");
-    response.sendRedirect("SERVMOD");
-%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -21,13 +17,14 @@
            </div>
             <div class="formulario">
                 <h2>Modificar</h2>
-               <form action="#" method="post">
-                    <input name="txtNombre" type="text" placeholder="<%=("txtNombre")%>" >
-                   <input name="txtApellido" type="text" placeholder="<%=sesion.getAttribute("txtApellido")%>" >
-                   <input name="txtDir" type="text" placeholder="<%=sesion.getAttribute("txtDir")%>" >
-                    <input name="txtPass" type="password" placeholder="<%=sesion.getAttribute("txtPass")%>" >
-                    <input name="txtCorreo" type="email" placeholder="<%=sesion.getAttribute("txtCorreo")%>" >
-                    <input name="txtTel" type="text" placeholder="<%=sesion.getAttribute("txtTel")%>" >
+               <form action="SERVACTU" method="post">
+                   <input name="txtCedula" type="text" placeholder="Cedula" >
+                    <input name="txtNombre" type="text" placeholder="Nombre" >
+                   <input name="txtApellido" type="text" placeholder="Apellido" >
+                   <input name="txtDir" type="text" placeholder="Direccion" >
+                    <input name="txtPass" type="password" placeholder="Contraseña" >
+                    <input name="txtCorreo" type="email" placeholder="Correo" >
+                    <input name="txtTel" type="text" placeholder="Telefono" >
                     <input name="btnMod" type="submit"  value="Modificar">
              </form>
             </div>
@@ -37,5 +34,18 @@
        </div>
            <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
            <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+       <%
+           HttpSession sesion = request.getSession();
+           int verd = 0;
+           if(request.getAttribute("verd")!=null){
+               verd = (Integer) request.getAttribute("verd");
+               if(verd == 1){
+                   out.println("<script>alert('Error al acutalizar');</script>");
+               }
+               else{
+                   out.println("<script>alert('Actualizado con exito');</script>");
+               }
+           }
+       %>
     </body>
 </html>

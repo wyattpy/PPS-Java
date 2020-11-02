@@ -59,7 +59,7 @@
 				<div class="sub-menu">
 					<a href="alta.jsp"><span>Alta Cliente</span></a>
 					<a href="baja.jsp"><span>Baja Cliente</span></a>
-					<a href="modificar.jsp"><span>Modificación Cliente</span></a>
+					<a href="datosCliente.jsp"><span>Modificación Cliente</span></a>
 					<a href="../manteniminento.html"><span>Consulta Cliente</span></a>
 				</div>
 			</li>

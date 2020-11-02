@@ -215,11 +215,11 @@ public class acceso {
         }
     }
 
-    public int actualizarDatos(String password, String nombre, String apellido,String telefono, String direccion, String correo){
+    public int actualizarDatos(String password, String nombre, String apellido,String telefono, String direccion, String correo, String cedula){
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "UPDATE into public.cliente SET( pass, nombre, apellido, telefono, direccion, correo) VALUES('"  + password + "','"+ nombre + "','"+ apellido + "','"+ telefono + "','"+ direccion + "','"+ correo + "')";
+            sql = "UPDATE public.cliente SET pass ='"  + password + "' , nombre ='"  + nombre + "', apellido ='"  + apellido + "', telefono ='"  + telefono + "', direccion ='"  + direccion + "', correo ='"  + correo + "' WHERE cedula ='"+ cedula +"'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             con.close();

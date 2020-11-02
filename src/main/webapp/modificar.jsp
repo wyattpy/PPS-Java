@@ -32,10 +32,7 @@
     <%
         HttpSession sesion = request.getSession();
         if(request.getAttribute("nivelA")!=null){
-            if(request.getAttribute("nivelA").equals("1")){
-                response.sendRedirect("datosCliente.jsp");
-            }
-            else{
+            if(request.getAttribute("nivelA").equals("2")) {
                 response.sendRedirect("datosCliente.jsp");
             }
         }

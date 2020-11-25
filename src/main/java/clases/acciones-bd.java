@@ -106,7 +106,7 @@ public class acceso {
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT apellido FROM public.cliente where ci='" + cedula + "'";
+            sql = "SELECT apellido FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             while(rs.next()){
@@ -125,7 +125,7 @@ public class acceso {
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT telefono FROM public.cliente where ci='" + cedula + "'";
+            sql = "SELECT telefono FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             while(rs.next()){
@@ -144,7 +144,7 @@ public class acceso {
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT direccion FROM public.usuarios where ci='" + cedula + "'";
+            sql = "SELECT direccion FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             while(rs.next()){
@@ -163,7 +163,7 @@ public class acceso {
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT correo FROM public.usuarios where ci='" + cedula + "'";
+            sql = "SELECT correo FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             while(rs.next()){
@@ -182,7 +182,7 @@ public class acceso {
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT nombre FROM public.usuarios where ci='" + cedula + "'";
+            sql = "SELECT nombre FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             while(rs.next()){
@@ -201,7 +201,7 @@ public class acceso {
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT pass FROM public.usuarios where ci='" + cedula + "'";
+            sql = "SELECT pass FROM public.clientes where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             while(rs.next()){

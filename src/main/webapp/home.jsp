@@ -6,7 +6,19 @@
 <html lang="en" dir="ltr">
 <head>
 	<meta charset="utf-8">
-	<title>Empleado</title>
+	<title><%
+		int nivel = 0;
+		if(sesion.getAttribute("nivel")!=null) {
+			nivel = (Integer) sesion.getAttribute("nivel");
+			if (nivel == 1) {
+				out.println("Administrador");
+			} else {
+				if (nivel == 2) {
+					out.println("Empleado");
+				}
+			}
+		}
+	%></title>
 	<link rel="stylesheet" href="https://drive.google.com/uc?export=view&id=1Vcm29fyAEBwIF8XSfO7lodEOCHWZhS9U">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
@@ -25,7 +37,7 @@
 				<i class="fas fa-bars"></i>
 			</div>
 			<ul>
-				<li><a href="#"><i class="fas fa-bell"></i></a></li>
+				<li><a href="#"><i class="fas fa-sync-alt"></i></a></li>
 				<li><a href="../login.jsp?cerrar=true"><i class="fas fa-power-off"></i></a></li>
 			</ul>
 		</div>
@@ -37,14 +49,13 @@
 			<center class="profile">
 				<img src="https://drive.google.com/uc?export=view&id=1QBkejBK2bGZMByJ8TlU-uQULAox-Rd4A" alt="" width="50" height="50">
 				<%
-					int nivel = 0;
 					if(sesion.getAttribute("nivel")!=null) {
 						nivel = (Integer) sesion.getAttribute("nivel");
 						if (nivel == 1) {
-							out.println("<p>Administrador</p>");
+							out.println("Administrador");
 						} else {
 							if (nivel == 2) {
-								out.println("<p>Empleado</p>");
+								out.println("Empleado");
 							}
 						}
 					}
@@ -60,7 +71,7 @@
 					<a href="alta.jsp"><span>Alta Cliente</span></a>
 					<a href="baja.jsp"><span>Baja Cliente</span></a>
 					<a href="datosCliente.jsp"><span>Modificación Cliente</span></a>
-					<a href="../manteniminento.html"><span>Consulta Cliente</span></a>
+					<a href="consulta-cliente.jsp"><span>Consulta Cliente</span></a>
 				</div>
 			</li>
 			<li class="item" id="cars">

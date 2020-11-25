@@ -1,11 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page session="true" %>
-<%
-    if(request.getParameter("id")!=null){
-        out.println("<script>alert('La pagina a la que solicita acceder no esta disponible en esta entrega. Verifique el manual de usuario');</script>");
-        response.sendRedirect("index.html");
-    }
-%>
 <!DOCTYPE html>
 <html lang="es">
 <head>

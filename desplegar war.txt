@@ -1,0 +1,1 @@
+heroku war:deploy C:/Users/diego/Documents/GitHub/PPS-Java/target/MVC-PRUEBA-1.0-SNAPSHOT.war -a pps-java

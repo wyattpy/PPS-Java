@@ -18,13 +18,13 @@
     <div class="formulario" diplay = none>
         <center> <h1> Baja de Cliente</h1></center> <br>
         <h2>Ingrese el cliente a eliminar</h2>
-        <form action="SERVBAJA" method="post">
+        <form action="servBajaCliente" method="post">
             <input name="txtCedula" type="text" placeholder="Cédula" required>
             <input type="submit" value="Eliminar" name="btnEliminar">
         </form>
     </div>
     <div class="cancelar">
-        <a href="admin-emp.jsp"><input type="submit"  value="Cancelar"></a>
+        <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
        
       </div>
 </div>

@@ -18,7 +18,7 @@
     </div>
     <div class="formulario">
         <h2>Iniciar Sesión</h2>
-        <form action="SERVLOGIN" method="post">
+        <form action="servLoginUser" method="post">
             <input type="text" name="txtCedula" placeholder="Cedula" required>
             <input type="password" name="txtPass" placeholder="Contraseña" required>
             <input type="submit"  value="Acceder" name="btnLogin">
@@ -36,18 +36,18 @@
         if(nivel == 1){
             sesion.setAttribute("nombre", request.getAttribute("nombre"));
             sesion.setAttribute("nivel", 1);
-            out.println("<script>alert('Acceso Exitoso');</script>");
-            response.sendRedirect("admin-emp.jsp");
+            out.println("<script>alert('Credenciales aceptadas');</script>");
+            response.sendRedirect("home.jsp");
         }
         else{
             if(nivel == 2){
                 sesion.setAttribute("nombre", request.getAttribute("nombre"));
                 sesion.setAttribute("nivel", 2);
-                out.println("<script>alert('Acceso Exitoso');</script>");
-                response.sendRedirect("admin-emp.jsp");
+                out.println("<script>alert('Credenciales aceptadas');</script>");
+                response.sendRedirect("home.jsp");
             }
             else{
-                out.println("<script>alert('Usuario o contraseña incorrecta');</script>");
+                out.println("<script>alert('Usuario o contraseña incorrecta, verifique sus credenciales');</script>");
             }
         }
     }

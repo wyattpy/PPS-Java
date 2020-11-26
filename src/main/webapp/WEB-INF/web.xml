@@ -5,48 +5,57 @@
          version="4.0">
 
     <servlet>
-        <servlet-name>SERVLOGIN</servlet-name>
-        <servlet-class>servlets.SERVLOGIN</servlet-class>
+        <servlet-name>servLoginUser</servlet-name>
+        <servlet-class>servlets.servLoginUser</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SERVLOGIN</servlet-name>
-        <url-pattern>/SERVLOGIN</url-pattern>
+        <servlet-name>servLoginUser</servlet-name>
+        <url-pattern>/servLoginUser</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SERVALTA</servlet-name>
-        <servlet-class>servlets.SERVALTA</servlet-class>
+        <servlet-name>servConsultaCliente</servlet-name>
+        <servlet-class>servlets.servConsultaCliente</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SERVALTA</servlet-name>
-        <url-pattern>/SERVALTA</url-pattern>
+        <servlet-name>servConsultaCliente</servlet-name>
+        <url-pattern>/servConsultaCliente</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SERVMOD</servlet-name>
-        <servlet-class>servlets.SERVMOD</servlet-class>
+        <servlet-name>servAltaCliente</servlet-name>
+        <servlet-class>servlets.servAltaCliente</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SERVMOD</servlet-name>
-        <url-pattern>/SERVMOD</url-pattern>
+        <servlet-name>servAltaCliente</servlet-name>
+        <url-pattern>/servAltaCliente</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SERVBAJA</servlet-name>
-        <servlet-class>servlets.SERVBAJA</servlet-class>
+        <servlet-name>servModCliente</servlet-name>
+        <servlet-class>servlets.servModCliente</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SERVBAJA</servlet-name>
-        <url-pattern>/SERVBAJA</url-pattern>
+        <servlet-name>servModCliente</servlet-name>
+        <url-pattern>/servModCliente</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>SERVACTU</servlet-name>
-        <servlet-class>servlets.SERVACTU</servlet-class>
+        <servlet-name>servBajaCliente</servlet-name>
+        <servlet-class>servlets.servBajaCliente</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>SERVACTU</servlet-name>
-        <url-pattern>/SERVACTU</url-pattern>
+        <servlet-name>servBajaCliente</servlet-name>
+        <url-pattern>/servBajaCliente</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servActualizarCliente</servlet-name>
+        <servlet-class>servlets.servActualizarCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servActualizarCliente</servlet-name>
+        <url-pattern>/servActualizarCliente</url-pattern>
     </servlet-mapping>
 
 

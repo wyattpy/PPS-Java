@@ -20,7 +20,7 @@
     <div class="formulario" display = none align= center>
         <h1> Consulta de clientes</h1> <br>
         <h2>Ingrese la CEDULA DE IDENTIDAD:</h2>
-        <form action="datosCliente.jsp" method="post">
+        <form action="<%= request.getAttribute("accion")%>" method="post">
             <input name= "txtCedula" type="text" placeholder="Cédula" required>
             <input type="submit"  value="Buscar" name="btnBuscar">
         </form>

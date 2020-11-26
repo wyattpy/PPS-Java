@@ -20,7 +20,7 @@
             <div class="formulario" align= center>
                <h1> Alta cliente</h1>
                 <h2>Ingrese los datos</h2>
-               <form action="SERVALTA" method="post">
+               <form action="servAltaCliente" method="post">
                    <input name="txtCedula" type="text" placeholder="Cédula de identidad" required >
                    <input name="txtPass" type="password" placeholder="Contraseña" required>
                    <input name="txtNombre" type="text" placeholder="Nombre" required>
@@ -33,7 +33,7 @@
              </form>
             </div>
             <div class="cancelar">
-                <a href="admin-emp.jsp"><input type="submit"  value="Cancelar"></a>
+                <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
             </div>
        </div>
            <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>

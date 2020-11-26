@@ -1,6 +1,6 @@
 package servlets;
 
-import clases.acceso;
+import clases.accionesDB;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,26 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "SERVBAJA")
-public class SERVBAJA extends HttpServlet {
+@WebServlet(name = "servLoginUser")
+public class servLoginUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
-        int respues = 9;
         try(PrintWriter out = response.getWriter()){
             String cedula;
-            acceso acc = new acceso();
+            String pass;
+            int nivel = 0;
+            String nombre = "0";
+            accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
-            if(request.getParameter("btnEliminar")!=null) {
+            if(request.getParameter("btnLogin")!=null){
                 cedula = request.getParameter("txtCedula");
-                respues = acc.bajaCliente(cedula);
-                if(respues==1){
-                   request.setAttribute("verdad", 1);
-                   rd = request.getRequestDispatcher("baja.jsp");
-                }
-                else{
-                    request.setAttribute("verdad", 2);
-                    rd = request.getRequestDispatcher("baja.jsp");
-                }
+                pass = request.getParameter("txtPass");
+                nivel = acc.validar(cedula, pass);
+                nombre = acc.obtenerNombre(cedula, pass);
+                request.setAttribute("nivel", nivel);
+                request.setAttribute("nombre", nombre);
+                request.setAttribute("cedula", cedula);
+                rd=request.getRequestDispatcher("login.jsp");
             }
             rd.forward(request,response);
         }

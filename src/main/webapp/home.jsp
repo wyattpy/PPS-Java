@@ -52,10 +52,10 @@
 					if(sesion.getAttribute("nivel")!=null) {
 						nivel = (Integer) sesion.getAttribute("nivel");
 						if (nivel == 1) {
-							out.println("Administrador");
+							out.println("<p>Administrador</p>");
 						} else {
 							if (nivel == 2) {
-								out.println("Empleado");
+								out.println("<p>Empleado</p>");
 							}
 						}
 					}
@@ -68,10 +68,10 @@
 					<i class="fas fa-user-circle"></i><span>Cliente <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
-					<a href="alta.jsp"><span>Alta Cliente</span></a>
-					<a href="baja.jsp"><span>Baja Cliente</span></a>
-					<a href="datosCliente.jsp"><span>Modificación Cliente</span></a>
-					<a href="consulta-cliente.jsp"><span>Consulta Cliente</span></a>
+					<a href="alta-cliente.jsp"><span>Alta Cliente</span></a>
+					<a href="baja-cliente.jsp"><span>Baja Cliente</span></a>
+					<a href="menu-busqueda.jsp?accion=servActualizarCliente"><span>Modificación Cliente</span></a>
+					<a href="menu-busqueda.jsp?accion=servConsultaCliente"><span>Consulta Cliente</span></a>
 				</div>
 			</li>
 			<li class="item" id="cars">

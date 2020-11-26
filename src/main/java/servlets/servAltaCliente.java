@@ -1,6 +1,6 @@
 package servlets;
 
-import clases.acceso;
+import clases.accionesDB;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "SERVALTA")
-public class SERVALTA extends HttpServlet {
+@WebServlet(name = "servAltaCliente")
+public class servAltaCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         int respues = 9;
@@ -24,7 +24,7 @@ public class SERVALTA extends HttpServlet {
             String telefono;
             String direccion;
             String correo;
-            acceso acc = new acceso();
+            accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnAlta")!=null){
                 cedula = request.getParameter("txtCedula");

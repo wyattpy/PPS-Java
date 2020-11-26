@@ -3,14 +3,14 @@ package clases;
 
 import java.sql.*;
 
-public class acceso {
-    database db = new database();
+public class accionesDB {
+    DB db = new DB();
     String sql = "";
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
 
-    public acceso(){
+    public accionesDB(){
 
     }
 

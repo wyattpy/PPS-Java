@@ -1,6 +1,6 @@
 package servlets;
 
-import clases.acceso;
+import clases.accionesDB;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "SERVCONSULTACLIENTE")
-public class SERVCONSULTACLIENTE extends HttpServlet {
+@WebServlet(name = "servConsultaCliente")
+public class servConsultaCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()){
             String cedula, contrasena, nombre, apellido, telefono, direccion, correo;
-            acceso acc = new acceso();
+            accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnBuscar")!=null){
                 cedula = request.getParameter("txtCedula");

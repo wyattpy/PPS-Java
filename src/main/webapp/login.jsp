@@ -7,11 +7,11 @@
     <title> PPS </title>
     <link  rel="icon" sizes="152px" href="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" type="image/png" />
     <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1GqIVYgLDRvI1I1xvaXGKuE1xlq8lcm7r">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 </head>
 <body>
 <div align="left">
-    <a href="/"><img src="https://drive.google.com/uc?export=view&id=1iRAvXNx0rHtzogPV-wwucx72YVdbX7jD" width="50" height="50"></a>
+    <a href="/"><i class="fas fa-home"></i></a>
 </div>
 <div class="contenedor-form">
     <div class="toggle">

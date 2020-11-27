@@ -28,10 +28,6 @@ public class servAltaCliente extends HttpServlet {
             RequestDispatcher rd = null;
             if(request.getParameter("btnAlta")!=null){
                 cedula = request.getParameter("txtCedula");
-                if(acc.cedulaRepetida(cedula)){
-                    request.setAttribute("verdad",0);
-                    rd=request.getRequestDispatcher("alta.jsp");
-                }
                 password = request.getParameter("txtPass");
                 nombre = request.getParameter("txtNombre");
                 apellido = request.getParameter("txtApellido");
@@ -39,8 +35,12 @@ public class servAltaCliente extends HttpServlet {
                 direccion = request.getParameter("txtDir");
                 correo = request.getParameter("txtCorreo");
                 respues = acc.altaCliente(cedula,password,nombre,apellido,telefono,direccion,correo);
-                request.setAttribute("verdad",1);
-                rd=request.getRequestDispatcher("alta.jsp");
+                if(respues == 1){
+                    request.setAttribute("verdad",1);
+                    rd=request.getRequestDispatcher("alta-cliente.jsp");
+                }
+                request.setAttribute("verdad",0);
+                rd=request.getRequestDispatcher("alta-cliente.jsp");
             }
             rd.forward(request,response);
         }

@@ -25,15 +25,24 @@
     </div>
     <div class="cancelar">
         <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
-       
       </div>
 </div>
     <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
     <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
 <%
     HttpSession sesion = request.getSession();
-    if(request.getAttribute("verdad")!=null){
-        out.println("<script>alert('Cliente eliminado con exito');</script>");
+    if(request.getAttribute("verdad1")!=null){
+        int verdad = (Integer) request.getAttribute("verdad1");
+        if(verdad == 0){
+            out.println("<script>alert('No se ah encontrado ese cliente con esa cedula');</script>");
+        }
+        else{
+            if(verdad == 1){
+                out.println("<script>alert('Cliente eliminado con exito');</script>");
+            }
+            else
+                out.println("<script>alert('Error desconocido');</script>");
+        }
     }
 %>
 </body>

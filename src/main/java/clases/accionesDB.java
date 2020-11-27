@@ -52,35 +52,22 @@ public class accionesDB {
         }
     }
 
-    public boolean cedulaRepetida(String cedula){
-        String ci ="";
-        try {
-            Class.forName(db.getDriver());
-            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT cedula FROM public.clientes where ci='" + cedula + "'";
-            pst = con.prepareStatement(sql);
-            rs = pst.executeQuery();
-            while(rs.next()){
-                ci = rs.getString(1);
-            }
-            con.close();
-            rs.close();
-            return true;
-        } catch (SQLException | ClassNotFoundException e) {
-            return false;
-        }
-    }
-
     public int altaCliente(String cedula, String password, String nombre, String apellido,String telefono, String direccion, String correo){
         try {
+            int i=5;
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "INSERT into public.cliente(cedula, pass, nombre, apellido, telefono, direccion, correo) VALUES('" + cedula + "','" + password + "','"+ nombre + "','"+ apellido + "','"+ telefono + "','"+ direccion + "','"+ correo + "')";
             pst = con.prepareStatement(sql);
-            rs = pst.executeQuery();
+            i = pst.executeUpdate();
+            if(i==1){
+                con.close();
+                rs.close();
+                return 1;
+            }
             con.close();
             rs.close();
-            return 1;
+            return 0;
         } catch (SQLException | ClassNotFoundException e) {
             return 0;
         }
@@ -88,14 +75,20 @@ public class accionesDB {
 
     public int bajaCliente(String cedula){
         try {
+            int i=5;
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "DELETE FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
-            rs = pst.executeQuery();
+            i = pst.executeUpdate();
+            if(i == 1){
+                con.close();
+                rs.close();
+                return 1;
+            }
             con.close();
             rs.close();
-            return 1;
+            return 0;
         } catch (SQLException | ClassNotFoundException e) {
             return 0;
         }

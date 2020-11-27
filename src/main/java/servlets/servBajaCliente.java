@@ -20,17 +20,15 @@ public class servBajaCliente extends HttpServlet {
             String cedula;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
-            if(request.getParameter("btnEliminar")!=null) {
+            if(request.getParameter("btnEliminar")!=null){
                 cedula = request.getParameter("txtCedula");
                 respues = acc.bajaCliente(cedula);
-                if(respues==1){
-                   request.setAttribute("verdad", 1);
-                   rd = request.getRequestDispatcher("baja.jsp");
+                if(respues == 1){
+                    request.setAttribute("verdad1",1);
+                    rd=request.getRequestDispatcher("baja-cliente.jsp");
                 }
-                else{
-                    request.setAttribute("verdad", 2);
-                    rd = request.getRequestDispatcher("baja.jsp");
-                }
+                request.setAttribute("verdad1",0);
+                rd=request.getRequestDispatcher("baja-cliente.jsp");
             }
             rd.forward(request,response);
         }

@@ -18,7 +18,6 @@ public class servModVehiculo extends HttpServlet {
         int respues = 9;
         try(PrintWriter out = response.getWriter()){
             String matricula = request.getParameter("txtMatricula");
-            String idVehiculo;
             String marca;
             String modelo;
             String color;
@@ -28,11 +27,13 @@ public class servModVehiculo extends HttpServlet {
             matricula = acc.obtenerMatricula(matricula);
             modelo  = acc.obtenerModelo(matricula);
             color = acc.obtenerColor (matricula);
-            ci_cliente = acc.obtenerCi_Cliente(matricula);
+            ci_cliente = acc.obtenerCiCliente(matricula);
+            marca = acc.obtenerMarca(matricula);
             request.setAttribute("txtMatricula", matricula);
             request.setAttribute("txtModelo", modelo);
             request.setAttribute("txtColor", color);
             request.setAttribute("txtCi_Cliente", ci_cliente);
+            request.setAttribute("txtMarca", marca);
             request.setAttribute("nivelA",2);
             rd=request.getRequestDispatcher("modificarVehiculo.jsp");
             rd.forward(request,response);

@@ -80,8 +80,8 @@
 				</a>
 				<div class="sub-menu">
 					<a href="alta-vehiculo.jsp"><span>Alta Vehículo</span></a>
-					<a href="../manteniminento.html"><span>Baja Vehículo</span></a>
-					<a href="../manteniminento.html"><span>Modificación Vehículo</span></a>
+					<a href="baja-vehiculo.jsp"><span>Baja Vehículo</span></a>
+					<a href="modificar-vehiculo.jsp"><span>Modificación Vehículo</span></a>
 					<a href="../manteniminento.html"><span>Consulta Vehículo</span></a>
 				</div>
 			</li>
@@ -91,7 +91,6 @@
 				</a>
 				<div class="sub-menu">
 					<a href="../manteniminento.html"><i class="fas fa-lock"></i><span>Contraseña</span></a>
-					<a href="../manteniminento.html"><i class="fas fa-language"></i><span>Lenguaje</span></a>
 				</div>
 			</li>
 			<li class="item">

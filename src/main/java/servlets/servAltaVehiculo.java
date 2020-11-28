@@ -13,10 +13,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "servAltaVehiculo")
-public class servAltaVehiculo {
+public class servAltaVehiculo extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int respues =9;
+        int respues;
         try (PrintWriter out = response.getWriter()) {
             String matricula;
             String marca;
@@ -25,7 +25,6 @@ public class servAltaVehiculo {
             String ci_cliente;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
-
             if (request.getParameter("btnAlta") != null) {
                 matricula = request.getParameter("txtMatricula");
                 marca = request.getParameter("txtMarca");
@@ -37,8 +36,10 @@ public class servAltaVehiculo {
                     request.setAttribute("verdad",1);
                     rd=request.getRequestDispatcher("alta-vehiculo.jsp");
                 }
-                request.setAttribute("verdad",0);
-                rd=request.getRequestDispatcher("alta-vehiculo.jsp");
+                else{
+                    request.setAttribute("verdad",0);
+                    rd=request.getRequestDispatcher("alta-vehiculo.jsp");
+                }
             }
             rd.forward(request,response);
         }

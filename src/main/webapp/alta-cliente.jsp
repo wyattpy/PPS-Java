@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -45,12 +44,8 @@
                if(verdad == 0){
                    out.println("<script>alert('Cedula existente');</script>");
                }
-               else{
-                   if(verdad == 1){
-                       out.println("<script>alert('Cliente guardado con exito');</script>");
-                   }
-                   else
-                       out.println("<script>alert('Error desconocido');</script>");
+               if(verdad == 10){
+                   out.println("<script>alert('Cliente guardado con exito');</script>");
                }
            }
        %>

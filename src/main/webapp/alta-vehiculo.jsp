@@ -29,12 +29,10 @@
         <h2>Ingrese los datos</h2>
         <form action="servAltaVehiculo" method="post">
             <input name="txtMatricula" type="text" placeholder="Matrícula" required >
-            <input name="txtMarca" type="password" placeholder="Marca" required>
+            <input name="txtMarca" type="text" placeholder="Marca" required>
             <input name="txtModelo" type="text" placeholder="Modelo" required>
             <input name="txtColor" type="text" placeholder="Color" required>
             <input name="txtCi_Cliente" type="text" placeholder="Cédula del cliente" required>
-
-
             <input type="submit"  value="Registrar vehículo" name="btnAlta">
         </form>
     </div>

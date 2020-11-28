@@ -52,7 +52,7 @@ public class accionesDB {
         }
     }
 
-    public int altaCliente(String cedula, String password, String nombre, String apellido, String telefono, String direccion, String correo) {
+    public boolean altaCliente(String cedula, String password, String nombre, String apellido, String telefono, String direccion, String correo) {
         try {
             int i = 5;
             Class.forName(db.getDriver());
@@ -63,13 +63,13 @@ public class accionesDB {
             if (i == 1) {
                 con.close();
                 rs.close();
-                return 1;
+                return true;
             }
             con.close();
             rs.close();
-            return 0;
+            return false;
         } catch (SQLException | ClassNotFoundException e) {
-            return 0;
+            return false;
         }
     }
 
@@ -237,9 +237,7 @@ public class accionesDB {
             sql = "SELECT marca FROM public.vehiculos where matricula='" + matricula+ "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while (rs.next()) {
-                marca  = rs.getString(1);
-            }
+            marca  = rs.getString(1);
             con.close();
             rs.close();
             return marca ;
@@ -256,9 +254,24 @@ public class accionesDB {
             sql = "SELECT modelo FROM public.vehiculos where matricula='" + matricula+ "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while (rs.next()) {
-                marca  = rs.getString(1);
-            }
+            marca  = rs.getString(1);
+            con.close();
+            rs.close();
+            return marca ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return marca ;
+        }
+    }
+
+    public String obtenerMatricula(String matricula) {
+        String marca = "";
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT matricula FROM public.vehiculos where matricula='" + matricula+ "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            marca  = rs.getString(1);
             con.close();
             rs.close();
             return marca ;
@@ -284,7 +297,7 @@ public class accionesDB {
             return marca ;
         }
     }
-    public String obtenerCi_cliente(String matricula) {
+    public String obtenerCiCliente(String matricula) {
         String marca = "";
         try {
             Class.forName(db.getDriver());
@@ -305,7 +318,7 @@ public class accionesDB {
 
     public int altaVehiculo(String matricula, String marca, String modelo, String color, String ci_cliente) {
         try {
-            int i = 5;
+            int i = 0;
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "INSERT into public.vehiculos(matricula,marca, modelo, color, ci_cliente) VALUES('" + matricula + "','" + marca+ "','" +modelo + "','" + color + "','" + ci_cliente +  "')";
@@ -314,28 +327,58 @@ public class accionesDB {
             if (i == 1) {
                 con.close();
                 rs.close();
-                return 1;
+                return i;
             }
             con.close();
             rs.close();
-            return 0;
+            return i;
         } catch (SQLException | ClassNotFoundException e) {
-            return 0;
+            int i = 0;
+            return i;
         }
     }
 
-    public int actualizarDatosVehiculo( String idVehiculo,  String matricula, String marca,String modelo,  String color, String ci_cliente){
+    public int bajaVehiculo(String matricula) {
         try {
+            int i = 0;
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql= "UPDATE public.vehiculos SET idVehiculo='" + idVehiculo + "' , color= '"  + color +"', ci_cliente= ='"  + ci_cliente + "'WHERE matricula = '"+ matricula +"'";
+            sql = "DELETE from public.vehiculos where matricula = '" + matricula + "')";
             pst = con.prepareStatement(sql);
-            rs = pst.executeQuery();
+            i = pst.executeUpdate();
+            if (i == 1) {
+                con.close();
+                rs.close();
+                return i;
+            }
             con.close();
             rs.close();
-            return 1;
+            return i;
         } catch (SQLException | ClassNotFoundException e) {
-            return 0;
+            int i = 0;
+            return i;
+        }
+    }
+
+    public int actualizarDatosVehiculo(String matricula,  String color, String ci_cliente){
+        try {
+            int i = 0;
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql= "UPDATE public.vehiculos SET color= '"  + color +"', ci_cliente= ='"  + ci_cliente + "'WHERE matricula = '"+ matricula +"'";
+            pst = con.prepareStatement(sql);
+            i = pst.executeUpdate();
+            if (i == 1) {
+                con.close();
+                rs.close();
+                return i;
+            }
+            con.close();
+            rs.close();
+            return i;
+        } catch (SQLException | ClassNotFoundException e) {
+            int i = 0;
+            return i;
         }
 
     }

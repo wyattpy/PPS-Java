@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 public class servAltaCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
-        int respues = 9;
+        boolean respues;
         try(PrintWriter out = response.getWriter()){
             String cedula;
             String password;
@@ -35,12 +35,14 @@ public class servAltaCliente extends HttpServlet {
                 direccion = request.getParameter("txtDir");
                 correo = request.getParameter("txtCorreo");
                 respues = acc.altaCliente(cedula,password,nombre,apellido,telefono,direccion,correo);
-                if(respues == 1){
+                if(respues){
                     request.setAttribute("verdad",1);
                     rd=request.getRequestDispatcher("alta-cliente.jsp");
                 }
-                request.setAttribute("verdad",0);
-                rd=request.getRequestDispatcher("alta-cliente.jsp");
+                else{
+                    request.setAttribute("verdad",0);
+                    rd=request.getRequestDispatcher("alta-cliente.jsp");
+                }
             }
             rd.forward(request,response);
         }

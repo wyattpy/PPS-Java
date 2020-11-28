@@ -58,6 +58,33 @@
         <url-pattern>/servActualizarCliente</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servAltaVehiculo</servlet-name>
+        <servlet-class>servlets.servAltaVehiculo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servAltaVehiculo</servlet-name>
+        <url-pattern>/servAltaVehiculo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servBajaVehiculo</servlet-name>
+        <servlet-class>servlets.servBajaVehiculo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servBajaVehiculo</servlet-name>
+        <url-pattern>/servBajaVehiculo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servModVehiculo</servlet-name>
+        <servlet-class>servlets.servModVehiculo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servModVehiculo</servlet-name>
+        <url-pattern>/servModVehiculo</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
         <welcome-file>/webapp/index.html</welcome-file>

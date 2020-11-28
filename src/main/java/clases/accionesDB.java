@@ -348,7 +348,21 @@ public class accionesDB {
         }
     }
 
+    public int actualizarDatosVehiculo( String idVehiculo,  String matricula, String marca,String modelo,  String color, String ci_cliente){
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql= "UPDATE public.vehiculos SET idVehiculo='" + idVehiculo + "' , color= '"  + color +"', ci_cliente= ='"  + ci_cliente + "'WHERE matricula = '"+ matricula +"'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            con.close();
+            rs.close();
+            return 1;
+        } catch (SQLException | ClassNotFoundException e) {
+            return 0;
+        }
 
+    }
 
 
 

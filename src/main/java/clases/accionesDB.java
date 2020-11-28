@@ -10,7 +10,7 @@ public class accionesDB {
     PreparedStatement pst;
     ResultSet rs;
 
-    public accionesDB(){
+    public accionesDB() {
 
     }
 
@@ -22,7 +22,7 @@ public class accionesDB {
             sql = "SELECT nombre, rol FROM public.usuarios where ci='" + cedula + "' and password ='" + pass + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 nivel = rs.getInt(2);
             }
             con.close();
@@ -33,15 +33,15 @@ public class accionesDB {
         }
     }
 
-    public String obtenerNombre(String cedula, String pass){
-        String nombre ="";
+    public String obtenerNombre(String cedula, String pass) {
+        String nombre = "";
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "SELECT nombre, rol FROM public.usuarios where ci='" + cedula + "' and password ='" + pass + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 nombre = rs.getString(1);
             }
             con.close();
@@ -52,15 +52,15 @@ public class accionesDB {
         }
     }
 
-    public int altaCliente(String cedula, String password, String nombre, String apellido,String telefono, String direccion, String correo){
+    public int altaCliente(String cedula, String password, String nombre, String apellido, String telefono, String direccion, String correo) {
         try {
-            int i=5;
+            int i = 5;
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "INSERT into public.cliente(cedula, pass, nombre, apellido, telefono, direccion, correo) VALUES('" + cedula + "','" + password + "','"+ nombre + "','"+ apellido + "','"+ telefono + "','"+ direccion + "','"+ correo + "')";
+            sql = "INSERT into public.cliente(cedula, pass, nombre, apellido, telefono, direccion, correo) VALUES('" + cedula + "','" + password + "','" + nombre + "','" + apellido + "','" + telefono + "','" + direccion + "','" + correo + "')";
             pst = con.prepareStatement(sql);
             i = pst.executeUpdate();
-            if(i==1){
+            if (i == 1) {
                 con.close();
                 rs.close();
                 return 1;
@@ -73,15 +73,15 @@ public class accionesDB {
         }
     }
 
-    public int bajaCliente(String cedula){
+    public int bajaCliente(String cedula) {
         try {
-            int i=5;
+            int i = 5;
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "DELETE FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             i = pst.executeUpdate();
-            if(i == 1){
+            if (i == 1) {
                 con.close();
                 rs.close();
                 return 1;
@@ -94,15 +94,16 @@ public class accionesDB {
         }
     }
 
-    public String obtenerApellido(String cedula){
-        String apellido ="";
+
+    public String obtenerApellido(String cedula) {
+        String apellido = "";
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "SELECT apellido FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 apellido = rs.getString(1);
             }
             con.close();
@@ -113,15 +114,15 @@ public class accionesDB {
         }
     }
 
-    public String obtenerTelefono(String cedula){
-        String telefono ="";
+    public String obtenerTelefono(String cedula) {
+        String telefono = "";
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "SELECT telefono FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 telefono = rs.getString(1);
             }
             con.close();
@@ -132,15 +133,15 @@ public class accionesDB {
         }
     }
 
-    public String obtenerDireccion(String cedula){
-        String nombre ="";
+    public String obtenerDireccion(String cedula) {
+        String nombre = "";
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "SELECT direccion FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 nombre = rs.getString(1);
             }
             con.close();
@@ -151,15 +152,15 @@ public class accionesDB {
         }
     }
 
-    public String obtenerCorreo(String cedula){
-        String nombre ="";
+    public String obtenerCorreo(String cedula) {
+        String nombre = "";
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "SELECT correo FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 nombre = rs.getString(1);
             }
             con.close();
@@ -170,15 +171,15 @@ public class accionesDB {
         }
     }
 
-    public String obtenerNombre(String cedula){
-        String nombre ="";
+    public String obtenerNombre(String cedula) {
+        String nombre = "";
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "SELECT nombre FROM public.cliente where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 nombre = rs.getString(1);
             }
             con.close();
@@ -189,15 +190,15 @@ public class accionesDB {
         }
     }
 
-    public String obtenerContrasena(String cedula){
-        String nombre ="";
+    public String obtenerContrasena(String cedula) {
+        String nombre = "";
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
             sql = "SELECT pass FROM public.clientes where cedula='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 nombre = rs.getString(1);
             }
             con.close();
@@ -208,11 +209,11 @@ public class accionesDB {
         }
     }
 
-    public int actualizarDatos(String password, String nombre, String apellido,String telefono, String direccion, String correo, String cedula){
+    public int actualizarDatos(String password, String nombre, String apellido, String telefono, String direccion, String correo, String cedula) {
         try {
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "UPDATE public.cliente SET pass ='"  + password + "' , nombre ='"  + nombre + "', apellido ='"  + apellido + "', telefono ='"  + telefono + "', direccion ='"  + direccion + "', correo ='"  + correo + "' WHERE cedula ='"+ cedula +"'";
+            sql = "UPDATE public.cliente SET pass ='" + password + "' , nombre ='" + nombre + "', apellido ='" + apellido + "', telefono ='" + telefono + "', direccion ='" + direccion + "', correo ='" + correo + "' WHERE cedula ='" + cedula + "'";
             pst = con.prepareStatement(sql);
             rs = pst.executeQuery();
             con.close();
@@ -224,4 +225,138 @@ public class accionesDB {
 
     }
 
+    // -----TODO PARA VEHICULO -----
+
+
+
+    public String obtenerMarca(String matricula) {
+        String marca = "";
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT marca FROM public.vehiculos where matricula='" + matricula+ "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                marca  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return marca ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return marca ;
+        }
+    }
+
+    public String obtenerModelo(String matricula) {
+        String marca = "";
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT modelo FROM public.vehiculos where matricula='" + matricula+ "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                marca  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return marca ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return marca ;
+        }
+    }
+    public String obtenerColor(String matricula) {
+        String marca = "";
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT color FROM public.vehiculos where matricula='" + matricula+ "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                marca  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return marca ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return marca ;
+        }
+    }
+    public String obtenerCi_cliente(String matricula) {
+        String marca = "";
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT ci_cliente FROM public.vehiculos where matricula='" + matricula+ "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                marca  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return marca ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return marca ;
+        }
+    }
+
+/*
+
+----NO SE COMO LLAMARLE Y DECILE, CHE KPO, ESTA CEDULA ES DE TU VEHICULO-----
+
+    public String obtenerMarca(String cedula, String pass) {
+        String marca = "";
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT marca, rol FROM public.vehiculos where ci='" + cedula + "' and password ='" + pass + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                marca = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return marca;
+        } catch (SQLException | ClassNotFoundException e) {
+            return marca;
+        }
+    }
+*/
+
+    public int altaVehiculo(String matricula, String marca, String modelo, String color, String ci_cliente) {
+        try {
+            int i = 5;
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "INSERT into public.vehiculos(matricula,marca, modelo, color, ci_cliente) VALUES('" + matricula + "','" + marca+ "','" +modelo + "','" + color + "','" + ci_cliente +  "')";
+            pst = con.prepareStatement(sql);
+            i = pst.executeUpdate();
+            if (i == 1) {
+                con.close();
+                rs.close();
+                return 1;
+            }
+            con.close();
+            rs.close();
+            return 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            return 0;
+        }
+    }
+
+
+
+
+
 }
+
+
+
+
+
+
+

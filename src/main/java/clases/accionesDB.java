@@ -303,30 +303,6 @@ public class accionesDB {
         }
     }
 
-/*
-
-----NO SE COMO LLAMARLE Y DECILE, CHE KPO, ESTA CEDULA ES DE TU VEHICULO-----
-
-    public String obtenerMarca(String cedula, String pass) {
-        String marca = "";
-        try {
-            Class.forName(db.getDriver());
-            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "SELECT marca, rol FROM public.vehiculos where ci='" + cedula + "' and password ='" + pass + "'";
-            pst = con.prepareStatement(sql);
-            rs = pst.executeQuery();
-            while (rs.next()) {
-                marca = rs.getString(1);
-            }
-            con.close();
-            rs.close();
-            return marca;
-        } catch (SQLException | ClassNotFoundException e) {
-            return marca;
-        }
-    }
-*/
-
     public int altaVehiculo(String matricula, String marca, String modelo, String color, String ci_cliente) {
         try {
             int i = 5;

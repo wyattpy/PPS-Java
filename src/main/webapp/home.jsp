@@ -79,7 +79,7 @@
 					<i class="fas fa-car"></i><span>Vehículo <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
-					<a href="../manteniminento.html"><span>Alta Vehículo</span></a>
+					<a href="alta-vehiculo.jsp"><span>Alta Vehículo</span></a>
 					<a href="../manteniminento.html"><span>Baja Vehículo</span></a>
 					<a href="../manteniminento.html"><span>Modificación Vehículo</span></a>
 					<a href="../manteniminento.html"><span>Consulta Vehículo</span></a>

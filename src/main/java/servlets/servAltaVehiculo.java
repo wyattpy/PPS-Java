@@ -32,9 +32,15 @@ public class servAltaVehiculo {
                 modelo = request.getParameter("txtModelo");
                 color = request.getParameter("txtColor");
                 ci_cliente = request.getParameter("txtCi_Cliente");
-
                 respues = acc.altaVehiculo(matricula,marca, modelo, color, ci_cliente);
+                if(respues == 1){
+                    request.setAttribute("verdad",1);
+                    rd=request.getRequestDispatcher("alta-vehiculo.jsp");
+                }
+                request.setAttribute("verdad",0);
+                rd=request.getRequestDispatcher("alta-vehiculo.jsp");
             }
+            rd.forward(request,response);
         }
     }
 }

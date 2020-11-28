@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page session="true" %>
 <!DOCTYPE html>
 
 <html lang="es">
@@ -50,7 +49,7 @@
     if(request.getAttribute("verdad")!=null){
         int verdad = (Integer) request.getAttribute("verdad");
         if(verdad == 0){
-            out.println("<script>alert('Matrícula existente');</script>");
+            out.println("<script>alert('Vehiculo existente');</script>");
         }
         else{
             if(verdad == 1){

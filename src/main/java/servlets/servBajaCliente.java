@@ -33,5 +33,4 @@ public class servBajaCliente extends HttpServlet {
             rd.forward(request,response);
         }
     }
-
 }

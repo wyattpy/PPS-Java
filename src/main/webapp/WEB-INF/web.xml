@@ -85,6 +85,24 @@
         <url-pattern>/servModVehiculo</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servConsultaModCliente</servlet-name>
+        <servlet-class>servlets.servConsultaModCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servConsultaModCliente</servlet-name>
+        <url-pattern>/servConsultaModCliente</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servConsultaModVehiculo</servlet-name>
+        <servlet-class>servlets.servConsultaModVehiculo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servConsultaModVehiculo</servlet-name>
+        <url-pattern>/servConsultaModVehiculo</url-pattern>
+    </servlet-mapping>
+
 
     <welcome-file-list>
         <welcome-file>/webapp/index.html</welcome-file>

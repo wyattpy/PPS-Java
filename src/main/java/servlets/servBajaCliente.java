@@ -15,22 +15,16 @@ import java.io.PrintWriter;
 public class servBajaCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
-        int respues = 9;
+        int i;
         try(PrintWriter out = response.getWriter()){
-            String cedula;
             accionesDB acc = new accionesDB();
-            RequestDispatcher rd = null;
-            if(request.getParameter("btnEliminar")!=null){
-                cedula = request.getParameter("txtCedula");
-                respues = acc.bajaCliente(cedula);
-                if(respues == 1){
-                    request.setAttribute("verdad1",1);
-                    rd=request.getRequestDispatcher("baja-cliente.jsp");
-                }
-                request.setAttribute("verdad1",0);
-                rd=request.getRequestDispatcher("baja-cliente.jsp");
+            String cedula = request.getParameter("txtCedula");
+            i = acc.bajaCliente(cedula);
+            if(i!=0){
+                request.setAttribute("verdc",0);
             }
-            rd.forward(request,response);
         }
+        RequestDispatcher rd = request.getRequestDispatcher("bajacliente.jsp");
+        rd.forward(request, response);
     }
 }

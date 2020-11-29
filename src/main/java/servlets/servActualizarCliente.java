@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 public class servActualizarCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
-        int respues = 9;
+        int i;
         try(PrintWriter out = response.getWriter()){
             String cedula = request.getParameter("txtCedula");
             String nombre = request.getParameter("txtNombre");
@@ -27,15 +27,12 @@ public class servActualizarCliente extends HttpServlet {
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnMod")!=null){
-                respues = acc.actualizarDatos(contrasena,nombre,apellido,telefono,direccion,correo, cedula);
-                if(respues == 1){
-                    request.setAttribute("verd", 1);
+                i = acc.actualizarDatos(contrasena,nombre,apellido,telefono,direccion,correo, cedula);
+                if(i!=0){
+                    request.setAttribute("verdcc", 0);
                 }
-                else {
-                    request.setAttribute("verd", 0);
-                }
-                rd=request.getRequestDispatcher("datosCliente.jsp");
             }
+            rd=request.getRequestDispatcher("menubusqueda1.jsp");
             rd.forward(request,response);
         }
     }

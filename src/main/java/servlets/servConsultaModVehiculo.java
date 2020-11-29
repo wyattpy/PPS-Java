@@ -11,23 +11,27 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "servBajaVehiculo")
-public class servBajaVehiculo extends HttpServlet {
+@WebServlet(name = "servConsultaModVehiculo")
+public class servConsultaModVehiculo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
-        int i;
         try(PrintWriter out = response.getWriter()){
-            String matricula;
+            String matricula, marca, modelo, color, cliente;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
-            if(request.getParameter("btnEliminar")!=null){
+            if(request.getParameter("btnBuscar")!=null){
                 matricula = request.getParameter("txtMatricula");
-                i = acc.bajaVehiculo(matricula);
-                if(i != 0){
-                    request.setAttribute("verdvv",0);
-                }
+                marca = acc.obtenerMarca(matricula);
+                modelo = acc.obtenerModelo(matricula);
+                color = acc.obtenerColor(matricula);
+                cliente = acc.obtenerCiCliente(matricula);
+                request.setAttribute("matricula", matricula);
+                request.setAttribute("marca", marca);
+                request.setAttribute("modelo", modelo);
+                request.setAttribute("color", color);
+                request.setAttribute("cliente", cliente);
+                rd=request.getRequestDispatcher("datosmodvehiculo.jsp");
             }
-            rd=request.getRequestDispatcher("bajavehiculo.jsp");
             rd.forward(request,response);
         }
     }

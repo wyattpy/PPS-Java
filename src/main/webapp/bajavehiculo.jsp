@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    HttpSession sesion = request.getSession();
+%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +20,7 @@
     <div class="formulario" diplay = none>
         <center> <h1> Baja de Vehículo</h1></center> <br>
         <h2>Ingrese el Vehículo a eliminar</h2>
-        <form action="servBajaVehiculo" method="post">
+        <form action="servBajaVehiculo" method="POST">
             <input name="txtMatricula" type="text" placeholder="Matricula" required>
             <input type="submit" value="Eliminar" name="btnEliminar">
         </form>
@@ -29,20 +32,11 @@
 <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
 <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
 <%
-    HttpSession sesion = request.getSession();
-    if(request.getAttribute("verdad1")!=null){
-        int verdad = (Integer) request.getAttribute("verdad1");
-        if(verdad == 0){
-            out.println("<script>alert('No se ah encontrado ese vehículo con esa matricula');</script>");
-        }
-        else{
-            if(verdad == 1){
-                out.println("<script>alert('Vehiculo eliminado con éxito');</script>");
-            }
-            else
-                out.println("<script>alert('Error desconocido');</script>");
-        }
+    if(request.getAttribute("verdvv")!=null){
+        out.println("<script>alert('Vehiculo eliminado con exito');</script>");
     }
+    else
+        out.println("<script>alert('El Vehiculo no existe (ignore el mensaje si acaba de abrir la pagina)');</script>");
 %>
 </body>
 </html>

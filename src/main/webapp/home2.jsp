@@ -69,7 +69,6 @@
 				</a>
 				<div class="sub-menu">
 					<a href="altacliente.jsp"><span>Alta Cliente</span></a>
-					<a href="bajacliente.jsp"><span>Baja Cliente</span></a>
 					<a href="menubusqueda1.jsp"><span>Modificación Cliente</span></a>
 					<a href="menubusqueda2.jsp"><span>Consulta Cliente</span></a>
 				</div>
@@ -80,7 +79,6 @@
 				</a>
 				<div class="sub-menu">
 					<a href="altavehiculo.jsp"><span>Alta Vehículo</span></a>
-					<a href="bajavehiculo.jsp"><span>Baja Vehículo</span></a>
 					<a href="modificarvehiculo.jsp"><span>Modificación Vehículo</span></a>
 					<a href="404.html"><span>Consulta Vehículo</span></a>
 				</div>
@@ -92,6 +90,11 @@
 				<div class="sub-menu">
 					<a href="404.html"><i class="fas fa-lock"></i><span>Contraseña</span></a>
 				</div>
+			</li>
+			<li class="item">
+				<a href="#" class="menu-btn">
+					<i class="fas fa-info-circle"></i><span>Acerca de </span>
+				</a>
 			</li>
 		</div>
 	</div>

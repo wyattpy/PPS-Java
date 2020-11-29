@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "servConsultaCliente")
-public class servConsultaCliente extends HttpServlet {
+public class servConsultaModCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()){
@@ -34,7 +34,7 @@ public class servConsultaCliente extends HttpServlet {
                 request.setAttribute("telefono", telefono);
                 request.setAttribute("direccion", direccion);
                 request.setAttribute("correo", correo);
-                rd=request.getRequestDispatcher("datosconsultacliente.jsp");
+                rd=request.getRequestDispatcher("datosmodcliente.jsp");
             }
             rd.forward(request,response);
         }

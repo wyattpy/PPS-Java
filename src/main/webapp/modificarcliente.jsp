@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page session="true" %>
+<%
+    HttpSession sesion = request.getSession();
+%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -24,7 +26,7 @@
             </form>
            </div>
             <div class="cancelar">
-                <a href="admin-emp.jsp"><input type="submit"  value="Cancelar"></a>
+                <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
               </div>
        </div>
            <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>

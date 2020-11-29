@@ -16,31 +16,22 @@ import java.io.PrintWriter;
 public class servAltaVehiculo extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int respues;
+        int i;
         try (PrintWriter out = response.getWriter()) {
-            String matricula;
-            String marca;
-            String modelo;
-            String color;
-            String ci_cliente;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if (request.getParameter("btnAlta") != null) {
-                matricula = request.getParameter("txtMatricula");
-                marca = request.getParameter("txtMarca");
-                modelo = request.getParameter("txtModelo");
-                color = request.getParameter("txtColor");
-                ci_cliente = request.getParameter("txtCi_Cliente");
-                respues = acc.altaVehiculo(matricula,marca, modelo, color, ci_cliente);
-                if(respues == 1){
-                    request.setAttribute("verdad",1);
-                    rd=request.getRequestDispatcher("alta-vehiculo.jsp");
-                }
-                else{
-                    request.setAttribute("verdad",0);
-                    rd=request.getRequestDispatcher("alta-vehiculo.jsp");
+                String matricula = request.getParameter("txtMatricula");
+                String marca = request.getParameter("txtMarca");
+                String modelo = request.getParameter("txtModelo");
+                String color = request.getParameter("txtColor");
+                String ci_cliente = request.getParameter("txtCi_Cliente");
+                i = acc.altaVehiculo(matricula,marca,modelo,color,ci_cliente);
+                if(i!=0){
+                    request.setAttribute("verdv",0);
                 }
             }
+            rd=request.getRequestDispatcher("altavehiculo.jsp");
             rd.forward(request,response);
         }
     }

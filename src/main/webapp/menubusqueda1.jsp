@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@page session="true" %>
+<%
+    HttpSession sesion = request.getSession();
+%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,26 +18,25 @@
         <span> Buscar</span>
     </div>
     <div class="formulario" display = none align= center>
-        <h1> Modificación de vehiculo </h1> <br>
-        <h2>Ingrese el vehiculo a modificar</h2>
-        <form action="datosVehiculo.jsp" method="get">
-            <input name= "txtMatricula" type="text" placeholder="Matricula" required>
+        <h1> Modificacion de clientes</h1> <br>
+        <h2>Ingrese la CEDULA DE IDENTIDAD:</h2>
+        <form action="servConsultaModCliente" method="POST">
+            <input name= "txtCedula" type="text" placeholder="Cédula" required>
             <input type="submit"  value="Buscar" name="btnBuscar">
         </form>
     </div>
     <div class="cancelar">
-        <a href="admin-emp.jsp"><input type="submit"  value="Cancelar"></a>
+        <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
     </div>
 </div>
 <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
 <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
 <%
-    HttpSession sesion = request.getSession();
-    if(request.getAttribute("nivelA")!=null){
-        if(request.getAttribute("nivelA").equals("2")) {
-            response.sendRedirect("datosVehiculo.jsp");
-        }
+    if(request.getAttribute("verdcc")!=null){
+        out.println("<script>alert('Cliente modificado con exito');</script>");
     }
+    else
+        out.println("<script>alert('Cliente no encontrado o no modificado (ignore el mensaje si acaba de abrir la pagina)');</script>");
 %>
 </body>
 </html>

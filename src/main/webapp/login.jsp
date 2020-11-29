@@ -44,7 +44,7 @@
                 sesion.setAttribute("nombre", request.getAttribute("nombre"));
                 sesion.setAttribute("nivel", 2);
                 out.println("<script>alert('Credenciales aceptadas');</script>");
-                response.sendRedirect("home.jsp");
+                response.sendRedirect("home2.jsp");
             }
             else{
                 out.println("<script>alert('Usuario o contraseña incorrecta, verifique sus credenciales');</script>");

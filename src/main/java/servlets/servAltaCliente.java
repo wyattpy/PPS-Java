@@ -15,37 +15,25 @@ import java.io.PrintWriter;
 public class servAltaCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
-        boolean respues;
+        int i;
         try(PrintWriter out = response.getWriter()){
-            String cedula;
-            String password;
-            String nombre;
-            String apellido;
-            String telefono;
-            String direccion;
-            String correo;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnAlta")!=null){
-                cedula = request.getParameter("txtCedula");
-                password = request.getParameter("txtPass");
-                nombre = request.getParameter("txtNombre");
-                apellido = request.getParameter("txtApellido");
-                telefono = request.getParameter("txtTel");
-                direccion = request.getParameter("txtDir");
-                correo = request.getParameter("txtCorreo");
-                respues = acc.altaCliente(cedula,password,nombre,apellido,telefono,direccion,correo);
-                if(respues){
-                    request.setAttribute("verdad",1);
-                    rd=request.getRequestDispatcher("alta-cliente.jsp");
-                }
-                else{
-                    request.setAttribute("verdad",0);
-                    rd=request.getRequestDispatcher("alta-cliente.jsp");
+                String cedula = request.getParameter("txtCedula");
+                String password = request.getParameter("txtPass");
+                String nombre = request.getParameter("txtNombre");
+                String apellido = request.getParameter("txtApellido");
+                String telefono = request.getParameter("txtTel");
+                String direccion = request.getParameter("txtDir");
+                String correo = request.getParameter("txtCorreo");
+                i = acc.altaCliente(cedula,password,nombre,apellido,telefono,direccion,correo);
+                if(i!=0){
+                    request.setAttribute("verd",0);
                 }
             }
+            rd=request.getRequestDispatcher("altacliente.jsp");
             rd.forward(request,response);
         }
     }
-
 }

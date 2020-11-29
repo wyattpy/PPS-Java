@@ -8,5 +8,5 @@
 4. Cecilia Silva
 
 # Las credenciales de acceso para:
-##### Admin -> Cedula: 5023712  Contraseña: admin1234
-##### Empleado -> Cedula: 6161000  Contraseña: vende1234
+##### Admin -> Cedula: 11  Contraseña: 1234
+##### Empleado -> Cedula: 12  Contraseña: 1234

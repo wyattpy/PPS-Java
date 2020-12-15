@@ -14,9 +14,11 @@
 <body>
 <div class="contenedor-form">
 
-    <div  class="toggle">
-        <span> Desplegar Datos </span>
+    <div class="">
+        <form action="#">
+        </form>
     </div>
+
     <div class="formulario" align= center>
         <h1>Consulta de vehículos</h1>
         <form>
@@ -34,7 +36,8 @@
         <a href="menubusqueda2.jsp"><input type="submit"  value="Volver"></a>
     </div>
 </div>
-<script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-<script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+
 </body>
 </html>
+
+

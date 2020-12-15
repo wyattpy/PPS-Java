@@ -20,7 +20,7 @@
         <div align="center">
             <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
         </div>
-        <form action="servActualizarCliente" method="post">
+        <form>
             <label>
                 <input name="txtCedula" value="<%=request.getAttribute("cedula")%>" type="text" required>
                 <input name="txtContrasena" value="<%=request.getAttribute("contrasena")%>" type="text" required>

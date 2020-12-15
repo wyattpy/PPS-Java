@@ -103,6 +103,49 @@
         <url-pattern>/servConsultaModVehiculo</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>servLoginCliente</servlet-name>
+        <servlet-class>servlets.servLoginCliente</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servLoginCliente</servlet-name>
+        <url-pattern>/servLoginCliente</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servAltaClienteCli</servlet-name>
+        <servlet-class>servlets.servAltaClienteCli</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servAltaClienteCli</servlet-name>
+        <url-pattern>/servAltaClienteCli</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servPassCli</servlet-name>
+        <servlet-class>servlets.servPassCli</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servPassCli</servlet-name>
+        <url-pattern>/servPassCli</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servConsultaVehiculo</servlet-name>
+        <servlet-class>servlets.servConsultaVehiculo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servConsultaVehiculo</servlet-name>
+        <url-pattern>/servConsultaVehiculo</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servAltaContratoCli</servlet-name>
+        <servlet-class>servlets.servAltaContratoCli</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servAltaContratoCli</servlet-name>
+        <url-pattern>/servAltaContratoCli</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
         <welcome-file>/webapp/index.html</welcome-file>

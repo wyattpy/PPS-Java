@@ -6,37 +6,36 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title> PPS </title>
+    <title> PPS - Login </title>
     <link  rel="icon" sizes="152px" href="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" type="image/png" />
-    <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1MNdaRPn4qbuS0rG0ctlZIYkpor-5xoiZ">
+    <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1GqIVYgLDRvI1I1xvaXGKuE1xlq8lcm7r">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 </head>
-
 <body>
-<div class="contenedor-form">
-
-    <div  class="toggle">
-        <span> Buscar</span>
+<div align="left">
+    <a href="home.jsp"><i class="fas fa-home"></i></a>
+</div>
+<div class="login">
+    <div align="center">
+        <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
     </div>
-    <div class="formulario" display = none align= center>
-        <h1> Modificacion de clientes</h1> <br>
-        <h2>Ingrese la CEDULA DE IDENTIDAD:</h2>
-        <form action="servConsultaModCliente" method="POST">
+    <form action="servConsultaModCliente" method="post">
+        <label>
+            <div align="center">
+                <p style="font-family: 'Times New Roman'; color: black">Ingrese la cedula del Cliente:</p>
+            </div>
             <input name= "txtCedula" type="text" placeholder="Cédula" required>
             <input type="submit"  value="Buscar" name="btnBuscar">
-        </form>
-    </div>
-    <div class="cancelar">
-        <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
-    </div>
+        </label>
+    </form>
 </div>
-<script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-<script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
 <%
-    if(request.getAttribute("verdcc")!=null){
+    if(request.getAttribute("modok")!=null){
         out.println("<script>alert('Cliente modificado con exito');</script>");
     }
-    else
-        out.println("<script>alert('Cliente no encontrado o no modificado (ignore el mensaje si acaba de abrir la pagina)');</script>");
+    if(request.getAttribute("modno")!=null){
+        out.println("<script>alert('Cliente no modificado');</script>");
+    }
 %>
 </body>
 </html>

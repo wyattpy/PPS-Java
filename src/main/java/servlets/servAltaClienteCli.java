@@ -11,11 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "servAltaCliente")
-public class servAltaCliente extends HttpServlet {
+@WebServlet(name = "servAltaClienteCli")
+public class servAltaClienteCli extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         int i;
+        String a=request.getParameter("txtPass"), b=request.getParameter("txtPass2");
+        if(!a.equals(b)){
+            RequestDispatcher rd = null;
+            request.setAttribute("iguales",0);
+            rd=request.getRequestDispatcher("registro.jsp");
+            rd.forward(request,response);
+        }
         try(PrintWriter out = response.getWriter()){
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
@@ -28,14 +35,13 @@ public class servAltaCliente extends HttpServlet {
                 String direccion = request.getParameter("txtDir");
                 String correo = request.getParameter("txtCorreo");
                 i = acc.altaCliente(cedula,password,nombre,apellido,telefono,direccion,correo);
-                if(i!=0){
-                    request.setAttribute("clienteok",0);
+                if(i!=1){
+                    request.setAttribute("verd",0);
                 }
-                else{
-                    request.setAttribute("clienteno",0);
-                }
+                else
+                    request.setAttribute("alt",0);
             }
-            rd=request.getRequestDispatcher("altacliente.jsp");
+            rd=request.getRequestDispatcher("registro.jsp");
             rd.forward(request,response);
         }
     }

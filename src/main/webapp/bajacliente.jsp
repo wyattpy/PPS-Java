@@ -32,7 +32,7 @@
     <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
     <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
 <%
-    if(request.getAttribute("verdc")!=null){
+    if(request.getAttribute("bajaok")!=null){
         out.println("<script>alert('Cliente eliminado con exito');</script>");
     }
     else

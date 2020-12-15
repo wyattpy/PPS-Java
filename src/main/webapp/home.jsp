@@ -1,6 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	HttpSession sesion = request.getSession();
+	if(sesion.getAttribute("cerrar")!=null){
+		request.getSession().invalidate();
+		response.sendRedirect("login.jsp");
+	}
 %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -60,12 +64,11 @@
 						}
 					}
 				%>
-				<p><%= sesion.getAttribute("nombre")%></p>
 			</center>
 
 			<li class="item" id="profile">
 				<a href="#profile" class="menu-btn">
-					<i class="fas fa-user-circle"></i><span>Cliente <i class="fas fa-chevron-down drop-down"></i></span>
+					<i class="fas fa-user-circle"></i><span>Clientes<i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
 					<a href="altacliente.jsp"><span>Alta Cliente</span></a>
@@ -76,21 +79,43 @@
 			</li>
 			<li class="item" id="cars">
 				<a href="#cars" class="menu-btn">
-					<i class="fas fa-car"></i><span>Vehículo <i class="fas fa-chevron-down drop-down"></i></span>
+					<i class="fas fa-car"></i><span>Vehículos<i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
 					<a href="altavehiculo.jsp"><span>Alta Vehículo</span></a>
 					<a href="bajavehiculo.jsp"><span>Baja Vehículo</span></a>
 					<a href="modificarvehiculo.jsp"><span>Modificación Vehículo</span></a>
-					<a href="404.html"><span>Consulta Vehículo</span></a>
+					<a href="menubusqueda3.jsp"><span>Consulta Vehículo</span></a>
 				</div>
 			</li>
+            <li class="item" id="paper">
+                <a href="#paper" class="menu-btn">
+                    <i class="fas fa-copy"></i><span>Contratos<i class="fas fa-chevron-down drop-down"></i></span>
+                </a>
+                <div class="sub-menu">
+                    <a href="404.html"><span>Alta Contrato</span></a>
+                    <a href="404.html"><span>Baja Contrato</span></a>
+                    <a href="modificarcontrato.jsp"><span>Modificación de Contrato</span></a>
+                    <a href="404.html"><span>Consulta Contrato</span></a>
+                </div>
+            </li>
+            <li class="item" id="parking">
+                <a href="#parking" class="menu-btn">
+                    <i class="fas fa-building"></i><span>Parkings<i class="fas fa-chevron-down drop-down"></i></span>
+                </a>
+                <div class="sub-menu">
+                    <a href="datosconsultaparking.jsp?piso=1"><span>Modificar Piso 1</span></a>
+                    <a href="datosconsultaparking.jsp?piso=2"><span>Modificar Piso 2</span></a>
+                    <a href="datosconsultaparking.jsp?piso=3"><span>Modificar Piso 3</span></a>
+                    <a href="serv"><span>Consulta de Pisos</span></a>
+                </div>
+            </li>
 			<li class="item" id="settings">
 				<a href="#settings" class="menu-btn">
 					<i class="fas fa-cog"></i><span>Configuración <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
-					<a href="404.html"><i class="fas fa-lock"></i><span>Contraseña</span></a>
+					<a href="passuser.jsp"><i class="fas fa-lock"></i><span>Contraseña</span></a>
 				</div>
 			</li>
 		</div>
@@ -104,23 +129,6 @@
 	</div>
 	<!--main container end-->
 </div>
-<%
-    int agregado;
-    if(request.getAttribute("agregadoCliente")!=null){
-        agregado = (Integer) request.getAttribute("agregadoCliente");
-        if(agregado == 1){
-            out.println("<script>alert('Cliente agregado con exito');</script>");
-        }
-        else{
-            if(agregado == 0){
-                out.println("<script>alert('Cliente repetido con esa cedula');</script>");
-            }
-            else{
-                out.println("<script>alert('Error desconocido');</script>");
-            }
-        }
-    }
-%>
 <!--wrapper end-->
 
 <script type="text/javascript">

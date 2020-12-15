@@ -4,7 +4,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title> PPS </title>
+    <title> PPS - Login </title>
     <link  rel="icon" sizes="152px" href="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" type="image/png" />
     <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1GqIVYgLDRvI1I1xvaXGKuE1xlq8lcm7r">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
@@ -13,21 +13,16 @@
 <div align="left">
     <a href="/"><i class="fas fa-home"></i></a>
 </div>
-<div class="contenedor-form">
-    <div class="toggle">
+<div class="login">
+    <div align="center">
+        <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
     </div>
-    <div class="formulario">
-        <h2>Iniciar Sesión</h2>
-        <form action="servLoginUser" method="post">
-            <input type="text" name="txtCedula" placeholder="Cedula" required>
-            <input type="password" name="txtPass" placeholder="Contraseña" required>
-            <input type="submit"  value="Acceder" name="btnLogin">
-        </form>
-    </div>
-
+    <form action="servLoginUser" method="post">
+        <input type="text" name="txtCedula" placeholder="Cedula de Identidad" id="username">
+        <input type="password" name="txtPass" placeholder="Contraseña" id="password">
+        <input type="submit"  value="Acceder" name="btnLogin">
+    </form>
 </div>
-    <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-    <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
 <%
     HttpSession sesion = request.getSession();
     int nivel = 0;
@@ -36,14 +31,12 @@
         if(nivel == 1){
             sesion.setAttribute("nombre", request.getAttribute("nombre"));
             sesion.setAttribute("nivel", 1);
-            out.println("<script>alert('Credenciales aceptadas');</script>");
             response.sendRedirect("home.jsp");
         }
         else{
             if(nivel == 2){
                 sesion.setAttribute("nombre", request.getAttribute("nombre"));
                 sesion.setAttribute("nivel", 2);
-                out.println("<script>alert('Credenciales aceptadas');</script>");
                 response.sendRedirect("home2.jsp");
             }
             else{
@@ -52,7 +45,7 @@
         }
     }
     if(request.getParameter("cerrar")!=null){
-        sesion.invalidate();
+        request.getSession().invalidate();
     }
 %>
 </body>

@@ -13,18 +13,22 @@ import java.io.PrintWriter;
 
 @WebServlet(name = "servBajaCliente")
 public class servBajaCliente extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         int i;
-        try(PrintWriter out = response.getWriter()){
+        try (PrintWriter out = response.getWriter()) {
+            String cedula;
             accionesDB acc = new accionesDB();
-            String cedula = request.getParameter("txtCedula");
-            i = acc.bajaCliente(cedula);
-            if(i!=0){
-                request.setAttribute("verdc",0);
+            RequestDispatcher rd = null;
+            if (request.getParameter("btnEliminar") != null) {
+                cedula = request.getParameter("txtCedula");
+                i = acc.bajaCliente(cedula);
+                if (i != 0) {
+                    request.setAttribute("bajaok", 0);
+                }
             }
+            rd = request.getRequestDispatcher("bajacliente.jsp");
+            rd.forward(request, response);
         }
-        RequestDispatcher rd = request.getRequestDispatcher("bajacliente.jsp");
-        rd.forward(request, response);
     }
 }

@@ -17,19 +17,22 @@ public class servActualizarCliente extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         int i;
         try(PrintWriter out = response.getWriter()){
-            String cedula = request.getParameter("txtCedula");
-            String nombre = request.getParameter("txtNombre");
-            String apellido = request.getParameter("txtApellido");
-            String telefono = request.getParameter("txtTel");
-            String direccion = request.getParameter("txtDir");
-            String correo = request.getParameter("txtCorreo");
-            String contrasena = request.getParameter("txtContrasena");
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnMod")!=null){
+                String cedula = request.getParameter("txtCedula");
+                String nombre = request.getParameter("txtNombre");
+                String apellido = request.getParameter("txtApellido");
+                String telefono = request.getParameter("txtTel");
+                String direccion = request.getParameter("txtDir");
+                String correo = request.getParameter("txtCorreo");
+                String contrasena = request.getParameter("txtContrasena");
                 i = acc.actualizarDatos(contrasena,nombre,apellido,telefono,direccion,correo, cedula);
                 if(i!=0){
-                    request.setAttribute("verdcc", 0);
+                    request.setAttribute("modok", 0);
+                }
+                else{
+                    request.setAttribute("modono", 0);
                 }
             }
             rd=request.getRequestDispatcher("menubusqueda1.jsp");

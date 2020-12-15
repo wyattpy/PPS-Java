@@ -11,24 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "servModVehiculo")
-public class servModVehiculo extends HttpServlet {
+@WebServlet(name = "servConsultaParking")
+public class servConsultaParking extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
-        int i;
         try(PrintWriter out = response.getWriter()){
+            String nro_piso, lugares_disponibles, lleno ;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
-            if(request.getParameter("btnMod")!=null){
-                String color = request.getParameter("txtColor");
-                String matricula = (String) request.getAttribute("txtMatricula");
-                i = acc.actualizarDatosVehiculo(matricula,color);
-                if(i != 0){
-                    request.setAttribute("verdvvv", 0);
-                }
+            if(request.getParameter("btnBuscar")!=null){
+                nro_piso = request.getParameter("txtNroPiso");
+                lugares_disponibles = acc.obtenerLugaresDisponibles(nro_piso);
+                lleno = acc.obtenerLleno(nro_piso);
+                request.setAttribute("nro_piso", nro_piso);
+                request.setAttribute("lugares_disponibles", lugares_disponibles);
+                request.setAttribute("lleno", lleno);
+                rd=request.getRequestDispatcher("datosmodparking.jsp");
             }
-            rd=request.getRequestDispatcher("modificarvehiculo.jsp");
             rd.forward(request,response);
         }
     }
+
 }

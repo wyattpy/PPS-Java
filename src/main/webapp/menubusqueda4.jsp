@@ -12,17 +12,17 @@
 </head>
 
 <body>
-
 <div class="contenedor-form">
-    <div class="toggle">
-        <span>Desplegar info</span>
+
+    <div  class="toggle">
+        <span> Buscar</span>
     </div>
-    <div class="formulario" diplay = none>
-        <center> <h1> Baja de Vehículo</h1></center> <br>
-        <h2>Ingrese el Vehículo a eliminar</h2>
-        <form action="servBajaVehiculo" method="POST">
-            <input name="txtMatricula" type="text" placeholder="Matricula" required>
-            <input type="submit" value="Eliminar" name="btnEliminar">
+    <div class="formulario" display = none align= center>
+        <h1> Consulta de Parking</h1> <br>
+        <h2>Ingrese el numero de piso :</h2>
+        <form action="servConsultaParking" method="POST">
+            <input name= "txtPiso" type="text" placeholder="Numero de piso" required>
+            <input type="submit"  value="Buscar" name="btnBuscar">
         </form>
     </div>
     <div class="cancelar">
@@ -31,12 +31,5 @@
 </div>
 <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
 <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
-<%
-    if(request.getAttribute("bajaok")!=null){
-        out.println("<script>alert('Vehiculo eliminado con exito');</script>");
-    }
-    else
-        out.println("<script>alert('El Vehiculo no existe (ignore el mensaje si acaba de abrir la pagina)');</script>");
-%>
 </body>
 </html>

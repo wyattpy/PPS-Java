@@ -34,8 +34,8 @@ public class servConsultaCliente extends HttpServlet {
                 request.setAttribute("telefono", telefono);
                 request.setAttribute("direccion", direccion);
                 request.setAttribute("correo", correo);
-                rd=request.getRequestDispatcher("datosconsultacliente.jsp");
             }
+            rd=request.getRequestDispatcher("datosconsultacliente.jsp");
             rd.forward(request,response);
         }
     }

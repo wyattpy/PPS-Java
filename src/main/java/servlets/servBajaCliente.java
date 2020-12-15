@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 public class servBajaCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int i;
+        int i = 0;
         try (PrintWriter out = response.getWriter()) {
             String cedula;
             accionesDB acc = new accionesDB();
@@ -25,6 +25,9 @@ public class servBajaCliente extends HttpServlet {
                 i = acc.bajaCliente(cedula);
                 if (i != 0) {
                     request.setAttribute("bajaok", 0);
+                }
+                else{
+                    request.setAttribute("bajano", 0);
                 }
             }
             rd = request.getRequestDispatcher("bajacliente.jsp");

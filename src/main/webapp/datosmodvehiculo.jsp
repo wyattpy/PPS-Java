@@ -12,29 +12,32 @@
     </head>
 
     <body>
-       <div class="contenedor-form">
-         
-           <div  class="toggle">
-               <span> Desplegar Datos </span>
-           </div>
-           <div class="formulario" align= center>
-               <h1>Modificación de vehiculo</h1>
-               <form action="servModVehiculo" method="POST">
-                   <label>
-                       <input name="txtMatricula" value="<%=request.getAttribute("matricula")%>" type="text" disabled >
-                       <input name="txtMarca" value="<%=request.getAttribute("marca")%>" type="text" disabled>
-                       <input name="txtModelo" value="<%=request.getAttribute("modelo")%>" type="text" disabled>
-                       <input name="txtColor" value="<%=request.getAttribute("color")%>" type="text" required>
-                       <input name="txtCi_Cliente" value="<%=request.getAttribute("cliente")%>" type="text" disabled>
-                       <input type="submit"  value="Modificar" name="btnMod">
-                   </label>
-               </form>
-           </div>
-            <div class="Volver">
-                <a href="modificarvehiculo.jsp"><input type="submit"  value="Volver"></a>
-            </div>
-       </div>
-           <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-           <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+    <div class="contenedor-form">
+
+        <div class="">
+            <form action="#">
+            </form>
+        </div>
+
+        <div class="formulario" align= center>
+
+            <h1>Modificación de vehiculo</h1>
+            <form action="servModVehiculo" method="POST">
+                <label>
+                    <input name="txtMatricula" value="<%=request.getAttribute("matricula")%>" type="text" disabled >
+                    <input name="txtMarca" value="<%=request.getAttribute("marca")%>" type="text" disabled>
+                    <input name="txtModelo" value="<%=request.getAttribute("modelo")%>" type="text" disabled>
+                    <input name="txtColor" value="<%=request.getAttribute("color")%>" type="text" required>
+                    <input name="txtCi_Cliente" value="<%=request.getAttribute("cliente")%>" type="text" disabled>
+                    <input type="submit"  value="Modificar" name="btnMod">
+                </label>
+            </form>
+        </div>
+        <div class="cancelar">
+            <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
+        </div>
+    </div>
     </body>
 </html>
+
+

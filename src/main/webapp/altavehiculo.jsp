@@ -45,8 +45,7 @@
         <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
     </div>
 </div>
-<script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-<script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+
 
 <%
     if(request.getAttribute("verdv")!=null){

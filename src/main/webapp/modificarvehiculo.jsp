@@ -12,12 +12,16 @@
 </head>
 
 <body>
+
 <div class="contenedor-form">
 
-    <div  class="toggle">
-        <span> Buscar</span>
+    <div class="">
+        <form action="#">
+        </form>
     </div>
-    <div class="formulario" display = none align= center>
+
+    <div class="formulario" align= center>
+
         <h1> Modificación de vehiculo </h1> <br>
         <h2>Ingrese el vehiculo a modificar</h2>
         <form action="servConsultaModVehiculo" method="POST">
@@ -29,8 +33,9 @@
         <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
     </div>
 </div>
-<script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-<script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+
+
+
 <%
     if(request.getAttribute("verdvvv")!=null){
         out.println("<script>alert('Vehiculo modificado');</script>");

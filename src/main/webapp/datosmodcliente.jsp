@@ -1,15 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     HttpSession sesion = request.getSession();
-    String cedula = (String) request.getAttribute("cedula"), contrasena = (String) request.getAttribute("contrasena"), nombre = (String) request.getAttribute("nombre"), apellido = (String) request.getAttribute("apellido"), telefono = (String) request.getAttribute("telefono"), direccion = (String) request.getAttribute("direccion"), correo = (String) request.getAttribute("correo");
-    sesion.setAttribute("cedula",cedula);
-    sesion.setAttribute("contrasena",contrasena);
-    sesion.setAttribute("apellido",apellido);
-    sesion.setAttribute("correo",correo);
-    sesion.setAttribute("nombre",nombre);
-    sesion.setAttribute("telefono",telefono);
-    sesion.setAttribute("direccion",direccion);
-
 %>
        <!DOCTYPE html>
        <html lang="es">
@@ -30,7 +21,7 @@
            </div>
            <form action="servActualizarCliente" method="post">
                <label>
-                   <input name="txtCedula" value="<%=request.getAttribute("cedula")%>" type="text" required>
+                   <input name="txtCedula" value="<%=request.getAttribute("cedula")%>" type="text" disabled>
                    <input name="txtContrasena" value="<%=request.getAttribute("contrasena")%>" type="text" required>
                    <input name="txtNombre" value="<%=request.getAttribute("nombre")%>" type="text" required>
                    <input name="txtApellido" value="<%=request.getAttribute("apellido")%>" type="text" required>

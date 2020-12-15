@@ -31,8 +31,8 @@ public class servConsultaVehiculo extends HttpServlet {
                 request.setAttribute("modelo", modelo);
                 request.setAttribute("color", color);
                 request.setAttribute("cliente", cliente);
-                rd=request.getRequestDispatcher("datosconsultavehiculo.jsp");
             }
+            rd=request.getRequestDispatcher("datosconsultavehiculo.jsp");
             rd.forward(request,response);
         }
     }

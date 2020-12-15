@@ -27,7 +27,7 @@ public class servActualizarCliente extends HttpServlet {
                 String direccion = request.getParameter("txtDir");
                 String correo = request.getParameter("txtCorreo");
                 String contrasena = request.getParameter("txtContrasena");
-                i = acc.actualizarDatos(contrasena,nombre,apellido,telefono,direccion,correo, cedula);
+                i = acc.actualizarDatos(contrasena,nombre,apellido,telefono,direccion,correo,cedula);
                 if(i!=0){
                     request.setAttribute("modok", 0);
                 }

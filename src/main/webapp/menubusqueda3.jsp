@@ -12,24 +12,22 @@
 </head>
 
 <body>
-<div class="contenedor-form">
-
-    <div  class="toggle">
-        <span> Buscar</span>
-    </div>
-    <div class="formulario" display = none align= center>
-        <h1> Consulta de Vehiculo</h1> <br>
-        <h2>Ingrese la Matricula :</h2>
-        <form action="servConsultaVehiculo" method="POST">
-            <input name= "txtPiso" type="text" placeholder="Numero de piso" required>
-            <input type="submit"  value="Buscar" name="btnBuscar">
-        </form>
-    </div>
-    <div class="cancelar">
-        <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
-    </div>
+<div align="left">
+    <a href="home.jsp"><i class="fas fa-home"></i></a>
 </div>
-<script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-<script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+<div class="login">
+    <div align="center">
+        <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
+    </div>
+    <form action="servConsultaVehiculo" method="post">
+        <label>
+            <div align="center">
+                <p style="font-family: 'Times New Roman'; color: black">Ingrese la Matricula del vehiculo:</p>
+            </div>
+            <input name= "txtPiso" type="text" placeholder="Matricula" required>
+            <input type="submit"  value="Buscar" name="btnBuscar">
+        </label>
+    </form>
+</div>
 </body>
 </html>

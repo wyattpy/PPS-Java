@@ -41,30 +41,6 @@
         </label>
     </form>
 </div>
-
-<<<<<<< Updated upstream
-<div align="left">
-    <a href="home.jsp"><i class="fas fa-home"></i></a>
-</div>
-<div class="formulariosGrandes">
-    <div align="center">
-        <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
-    </div>
-    <form action="servAltaCliente" method="post">
-        <label>
-            <input name="txtCedula" type="text" placeholder="Cédula de identidad" required >
-            <input name="txtPass" type="password" placeholder="Contraseña" required>
-            <input name="txtNombre" type="text" placeholder="Nombre" required>
-            <input name="txtApellido" type="text" placeholder="Apellido" required>
-            <input name="txtTel" type="text" placeholder="Teléfono" required>
-            <input name="txtDir" type="text" placeholder="Dirección" required>
-            <input name="txtCorreo" type="text" placeholder="Correo electronico" required>
-            <input type="submit"  value="Registrar cliente" name="btnAlta">
-        </label>
-    </form>
-</div>
-=======
->>>>>>> Stashed changes
 <%
     if(request.getAttribute("vehiculook")!=null){
         out.println("<script>alert('Vehículo agregado');</script>");

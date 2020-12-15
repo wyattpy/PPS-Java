@@ -23,8 +23,13 @@
         <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
     </div>
     <form action="servBajaVehiculo" method="POST">
-        <input name="txtMatricula" type="text" placeholder="Matricula" required>
-        <input type="submit" value="Eliminar" name="btnEliminar">
+        <label>
+            <div align="center">
+                <p style="font-family: 'Times New Roman'; color: black">Baja de Vehiculos</p>
+            </div>
+            <input name="txtMatricula" type="text" placeholder="Matricula" required>
+            <input type="submit" value="Eliminar" name="btnEliminar">
+        </label>
     </form>
 </div>
 <%

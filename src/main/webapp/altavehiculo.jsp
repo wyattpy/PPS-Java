@@ -28,10 +28,11 @@
     <div align="center">
         <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
     </div>
-    <h1> Alta vehiculo</h1>
-    <h2>Ingrese los datos</h2>
     <form action="servAltaVehiculo" method="POST">
         <label>
+            <div align="center">
+                <p style="font-family: 'Times New Roman'; color: black">Alta de Vehiculos</p>
+            </div>
             <input name="txtMatricula" type="text" placeholder="Matrícula" required >
             <input name="txtMarca" type="text" placeholder="Marca" required>
             <input name="txtModelo" type="text" placeholder="Modelo" required>

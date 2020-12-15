@@ -23,8 +23,11 @@ public class servBajaVehiculo extends HttpServlet {
             if(request.getParameter("btnEliminar")!=null){
                 matricula = request.getParameter("txtMatricula");
                 i = acc.bajaVehiculo(matricula);
-                if(i != 0){
-                    request.setAttribute("bajaok",0);
+                if (i != 0) {
+                    request.setAttribute("bajaok", 0);
+                }
+                else{
+                    request.setAttribute("bajano", 0);
                 }
             }
             rd=request.getRequestDispatcher("bajavehiculo.jsp");

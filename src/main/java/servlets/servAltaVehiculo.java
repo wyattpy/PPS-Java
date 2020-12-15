@@ -28,7 +28,10 @@ public class servAltaVehiculo extends HttpServlet{
                 String ci_cliente = request.getParameter("txtCi_Cliente");
                 i = acc.altaVehiculo(matricula,marca,modelo,color,ci_cliente);
                 if(i!=0){
-                    request.setAttribute("verdv",0);
+                    request.setAttribute("vehiculook",0);
+                }
+                else{
+                    request.setAttribute("vehiculono",0);
                 }
             }
             rd=request.getRequestDispatcher("altavehiculo.jsp");

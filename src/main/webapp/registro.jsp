@@ -15,7 +15,7 @@
 </div>
 <div class="contenedor-form">
     <div class="toggle">
-        <span> Ya tiene cuenta? Ingrese Aqui</span>
+        <span> ¿Ya tiene cuenta? Ingrese Aqui</span>
     </div>
     <div class="formulario">
         <h2>Crea tu cuenta</h2>

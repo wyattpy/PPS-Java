@@ -518,6 +518,140 @@ public class accionesDB {
         }
 
     }
+    public String obtenerIdCliente (String id_contrato) {
+        String dato = null;
+
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT id_cliente FROM public.contratos where id_contrato ='" + id_contrato + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                dato  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return dato ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return "" ;
+        }
+    }
+    public String obtenerTotalContrato(String id_contrato) {
+        String dato = null;
+
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT total_contrato FROM public.contratos where id_contrato ='" + id_contrato + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                dato  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return dato ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return "" ;
+        }
+    }
+    public String obtenerFechaInicio(String id_contrato) {
+        String dato = null;
+
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT fecha_inicio FROM public.contratos where id_contrato ='" + id_contrato + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                dato  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return dato ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return "" ;
+        }
+    }
+    public String obtenerFechaFin(String id_contrato) {
+        String dato = null;
+
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT fecha_fin FROM public.contratos where id_contrato ='" + id_contrato + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                dato  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return dato ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return "" ;
+        }
+    }
+    public String obtenerDescripcion(String id_contrato) {
+        String dato = null;
+
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT descripcion FROM public.contratos where id_contrato ='" + id_contrato + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                dato  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return dato ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return "" ;
+        }
+    }
+    public String obtenerEstadoContrato (String id_contrato) {
+        String dato = null;
+
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT estado FROM public.contratos where id_contrato ='" + id_contrato + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                dato  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return dato ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return "" ;
+        }
+    }
+    public String obtenerTipoContrato(String id_contrato) {
+        String dato = null;
+
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
+            sql = "SELECT tipo_contrato FROM public.contratos where id_contrato ='" + id_contrato + "'";
+            pst = con.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) {
+                dato  = rs.getString(1);
+            }
+            con.close();
+            rs.close();
+            return dato ;
+        } catch (SQLException | ClassNotFoundException e) {
+            return "" ;
+        }
+    }
+
 
     //-------Parking---------------
     public int actualizarDatosParking(String nroPiso, String lugaresDisponibles, String lleno)

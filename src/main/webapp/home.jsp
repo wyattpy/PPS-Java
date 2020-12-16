@@ -93,10 +93,10 @@
                     <i class="fas fa-copy"></i><span>Contratos<i class="fas fa-chevron-down drop-down"></i></span>
                 </a>
                 <div class="sub-menu">
-                    <a href="404.html"><span>Alta Contrato</span></a>
-                    <a href="404.html"><span>Baja Contrato</span></a>
+                    <a href="altaContrato.jsp"><span>Alta Contrato</span></a>
+                    <a href="bajaContrato.jsp"><span>Baja Contrato</span></a>
                     <a href="modificarcontrato.jsp"><span>Modificación de Contrato</span></a>
-                    <a href="404.html"><span>Consulta Contrato</span></a>
+                    <a href="servConsultaContrato"><span>Consulta Contrato</span></a>
                 </div>
             </li>
             <li class="item" id="parking">

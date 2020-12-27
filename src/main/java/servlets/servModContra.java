@@ -11,23 +11,26 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "servPassUser")
-public class servPassUser extends HttpServlet {
+@WebServlet(name = "servModContra")
+public class servModContra extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         int i;
         try(PrintWriter out = response.getWriter()){
             accionesDB acc = new accionesDB();
-            RequestDispatcher rd;
+            RequestDispatcher rd = null;
             if(request.getParameter("btnMod")!=null){
-                String cedula = request.getParameter("txtCedula");
-                String contrasena = request.getParameter("txtContrasena");
-                i = acc.actualizarContraUser(cedula,contrasena);
+                String pass = request.getParameter("txtPass");
+                String user = request.getParameter("txtUser");
+                i = acc.cambiarContraAdmin(pass,user);
                 if(i!=0){
-                    request.setAttribute("verdcc", 0);
+                    request.setAttribute("modconok", 0);
+                }
+                else{
+                    request.setAttribute("modconno", 0);
                 }
             }
-            rd=request.getRequestDispatcher("passuser.jsp");
+            rd=request.getRequestDispatcher("modcontra.jsp");
             rd.forward(request,response);
         }
     }

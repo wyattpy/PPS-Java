@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     HttpSession sesion = request.getSession();
+    sesion.setAttribute("cedula",request.getAttribute("cedula"));
 %>
        <!DOCTYPE html>
        <html lang="es">
@@ -21,7 +22,7 @@
            </div>
            <form action="servActualizarCliente" method="post">
                <label>
-                   <input name="txtCedula" value="<%=request.getAttribute("cedula")%>" type="text" disabled>
+                   <input name="txtCedula" value="<%=sesion.getAttribute("cedula")%>" type="text" readonly>
                    <input name="txtContrasena" value="<%=request.getAttribute("contrasena")%>" type="text" required>
                    <input name="txtNombre" value="<%=request.getAttribute("nombre")%>" type="text" required>
                    <input name="txtApellido" value="<%=request.getAttribute("apellido")%>" type="text" required>

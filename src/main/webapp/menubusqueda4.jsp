@@ -8,28 +8,27 @@
     <meta charset="UTF-8">
     <title> PPS </title>
     <link  rel="icon" sizes="152px" href="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" type="image/png" />
-    <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1MNdaRPn4qbuS0rG0ctlZIYkpor-5xoiZ">
+    <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1GqIVYgLDRvI1I1xvaXGKuE1xlq8lcm7r">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 </head>
 
 <body>
-<div class="contenedor-form">
-
-    <div  class="toggle">
-        <span> Buscar</span>
-    </div>
-    <div class="formulario" display = none align= center>
-        <h1> Consulta de Parking</h1> <br>
-        <h2>Ingrese el numero de piso :</h2>
-        <form action="servConsultaParking" method="POST">
-            <input name= "txtPiso" type="text" placeholder="Numero de piso" required>
-            <input type="submit"  value="Buscar" name="btnBuscar">
-        </form>
-    </div>
-    <div class="cancelar">
-        <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
-    </div>
+<div align="left">
+    <a href="home.jsp"><i class="fas fa-home"></i></a>
 </div>
-<script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-<script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+<div class="login">
+    <div align="center">
+        <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
+    </div>
+    <form action="servConsultaParking" method="post">
+        <label>
+            <div align="center">
+                <p style="font-family: 'Times New Roman'; color: black">Ingrese el numero de piso:</p>
+            </div>
+            <input name= "txtNroPiso" type="text" placeholder="Numero de piso" required>
+            <input type="submit"  value="Buscar" name="btnBuscar">
+        </label>
+    </form>
+</div>
 </body>
 </html>

@@ -22,13 +22,13 @@
         </div>
         <form>
             <label>
-                <input name="txtCedula" value="<%=request.getAttribute("cedula")%>" type="text" required>
-                <input name="txtContrasena" value="<%=request.getAttribute("contrasena")%>" type="text" required>
-                <input name="txtNombre" value="<%=request.getAttribute("nombre")%>" type="text" required>
-                <input name="txtApellido" value="<%=request.getAttribute("apellido")%>" type="text" required>
-                <input name="txtTel" value="<%=request.getAttribute("telefono")%>" type="text" required>
-                <input name="txtDir" value="<%=request.getAttribute("direccion")%>" type="text" required>
-                <input name="txtCorreo" value="<%=request.getAttribute("correo")%>" type="text" required>
+                <input name="txtCedula" value="<%=request.getAttribute("cedula")%>" type="text" disabled>
+                <input name="txtContrasena" value="<%=request.getAttribute("contrasena")%>" type="text" disabled>
+                <input name="txtNombre" value="<%=request.getAttribute("nombre")%>" type="text" disabled>
+                <input name="txtApellido" value="<%=request.getAttribute("apellido")%>" type="text" disabled>
+                <input name="txtTel" value="<%=request.getAttribute("telefono")%>" type="text" disabled>
+                <input name="txtDir" value="<%=request.getAttribute("direccion")%>" type="text" disabled>
+                <input name="txtCorreo" value="<%=request.getAttribute("correo")%>" type="text" disabled>
             </label>
         </form>
     </div>

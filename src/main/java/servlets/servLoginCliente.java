@@ -16,9 +16,10 @@ public class servLoginCliente extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()){
-            String cedula,cuenta,apellido;
+            String cedula,apellido;
             String pass;
-            String nombre = "0";
+            String nombre;
+            String idcontrato, total, fechaini, fechafin, estado, tipo, observaciones;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnLogin")!=null){
@@ -26,11 +27,27 @@ public class servLoginCliente extends HttpServlet {
                 pass = request.getParameter("txtPass");
                 nombre = acc.validarCli(cedula, pass);
                 apellido = acc.obtenerApellido(cedula);
-                cuenta = acc.obtenerTipoCuenta(cedula);
+                idcontrato = acc.obtenerIdContrato(cedula);
+                total = acc.obtenerTotalContrato(cedula);
+                fechaini = acc.obtenerFechaInicio(cedula);
+                fechafin = acc.obtenerFechaFin(cedula);
+                estado = acc.obtenerEstadoContrato(cedula);
+                tipo = acc.obtenerTipoContrato(cedula);
+                observaciones = acc.obtenerDescripcion(cedula);
                 request.setAttribute("nombre", nombre);
-                request.setAttribute("cedula", cedula);
-                request.setAttribute("cuenta", cuenta);
                 request.setAttribute("apellido", apellido);
+                request.setAttribute("cedula",cedula);
+                request.setAttribute("pass",pass);
+                request.setAttribute("telefono",acc.obtenerTelefono(cedula));
+                request.setAttribute("direccion",acc.obtenerDireccion(cedula));
+                request.setAttribute("correo",acc.obtenerCorreo(cedula));
+                request.setAttribute("idcontrato",idcontrato);
+                request.setAttribute("total",total);
+                request.setAttribute("fechaini",fechaini);
+                request.setAttribute("fechafin",fechafin);
+                request.setAttribute("estado",estado);
+                request.setAttribute("tipo",tipo);
+                request.setAttribute("observaciones",observaciones);
             }
             rd=request.getRequestDispatcher("acceso.jsp");
             rd.forward(request,response);

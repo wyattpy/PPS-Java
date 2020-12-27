@@ -11,27 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
-@WebServlet(name = "servConsultaContrato")
-public class servConsultaContrato extends HttpServlet {
+@WebServlet(name = "servConsultaModContrato")
+public class servConsultaModContrato extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()){
+            String cedula, idContrato, total, fechainicio, fechafin, estado, tipo, observaciones;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnBuscar")!=null){
-                String cedula = request.getParameter("txtCedula");
-                String total = acc.obtenerTotalContrato(cedula);
-                if(total==null){
-                    request.setAttribute("nocontratos",0);
-                }
-                String idcontrato = acc.obtenerIdContrato(cedula);
-                String fechainicio = acc.obtenerFechaInicio(cedula);
-                String fechafin = acc.obtenerFechaFin(cedula);
-                String estado = acc.obtenerEstadoContrato(cedula);
-                String tipo = acc.obtenerTipoContrato(cedula);
-                String observaciones = acc.obtenerDescripcion(cedula);
-                request.setAttribute("idContrato", idcontrato);
+                cedula = request.getParameter("txtCedula");
+                idContrato = acc.obtenerIdContrato(cedula);
+                total = acc.obtenerTotalContrato(cedula);
+                fechainicio = acc.obtenerFechaInicio(cedula);
+                fechafin = acc.obtenerFechaFin(cedula);
+                estado = acc.obtenerEstadoContrato(cedula);
+                tipo = acc.obtenerTipoContrato(cedula);
+                observaciones = acc.obtenerDescripcion(cedula);
+                request.setAttribute("idContrato", idContrato);
                 request.setAttribute("cedula", cedula);
                 request.setAttribute("total", total);
                 request.setAttribute("fechaini", fechainicio);
@@ -40,10 +37,9 @@ public class servConsultaContrato extends HttpServlet {
                 request.setAttribute("tipo", tipo);
                 request.setAttribute("observaciones", observaciones);
             }
-            rd=request.getRequestDispatcher("datosconsultacontrato.jsp");
+            rd=request.getRequestDispatcher("datosmodcontrato.jsp");
             rd.forward(request,response);
         }
     }
 
 }
-

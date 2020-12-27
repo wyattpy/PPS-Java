@@ -17,18 +17,21 @@ public class servActualizarParking extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         int i;
         try(PrintWriter out = response.getWriter()){
-            String nro_piso = request.getParameter("txtNroPiso");
-            String lugares_disponibles = request.getParameter("txtLugaresDisponibles");
-            String lleno = request.getParameter("txtLleno");
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnMod")!=null){
-                i = acc.actualizarDatosParking(nro_piso, lugares_disponibles, lleno);
+                String nro_piso = request.getParameter("txtNroPiso");
+                String lugares_disponibles = request.getParameter("txtLugaresDisponibles");
+                String lleno = request.getParameter("txtLleno");
+                i =  acc.actualizarDatosParking( nro_piso, lugares_disponibles,  lleno);
                 if(i!=0){
-                    request.setAttribute("verdcc", 0);
+                    request.setAttribute("modok", 0);
+                }
+                else{
+                    request.setAttribute("modono", 0);
                 }
             }
-            rd=request.getRequestDispatcher("modificarparking.jsp");
+            rd=request.getRequestDispatcher("menubusqueda5.jsp");
             rd.forward(request,response);
         }
     }

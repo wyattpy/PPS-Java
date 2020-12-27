@@ -16,7 +16,8 @@ public class servConsultaVehiculo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         try(PrintWriter out = response.getWriter()){
-            String matricula, marca, modelo, color, cliente;
+            String matricula, marca, modelo, color, cliente, vin, mejoras, esElectrico;
+            Boolean asegurado;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnBuscar")!=null){
@@ -25,6 +26,7 @@ public class servConsultaVehiculo extends HttpServlet {
                 modelo = acc.obtenerModelo(matricula);
                 color = acc.obtenerColor(matricula);
                 cliente = acc.obtenerCiCliente(matricula);
+
 
                 request.setAttribute("matricula", matricula);
                 request.setAttribute("marca", marca);

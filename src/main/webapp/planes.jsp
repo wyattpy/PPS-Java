@@ -8,6 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     HttpSession sesion = request.getSession();
+    if(sesion.getAttribute("cedula")==null){
+        response.sendRedirect("acceso.jsp?fake=true");
+    }
 %>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -53,7 +56,9 @@
 
 
 <!--====== PRINICNG START ======-->
-
+<div align="left">
+    <a href="menu.jsp"><i class="fas fa-home"></i></a>
+</div>
 <section id="pricing" class="pricing-area ">
     <div class="container">
         <div class="row justify-content-center">
@@ -79,11 +84,7 @@
                         <ul>
                             <li><i class="lni lni-check-mark-circle"></i> El plan que usted necesita</li>
                             <li><i class="lni lni-check-mark-circle"></i> Acceso 24/7 a las instalaciones</li>
-                            <form action="nuevocontrato.jsp?plan=1" method="get">
-                                <label>
-                                    <input type="button" value="Contratar este Plan">
-                                </label>
-                            </form>
+                            <a href="nuevocontrato.jsp?plan=1" style="color: white">Contrate este plan :D</a>
                         </ul>
                     </div>
                 </div> <!-- pricing style one -->
@@ -102,11 +103,7 @@
                         <ul>
                             <li><i class="lni lni-check-mark-circle"></i> Para su empresa</li>
                             <li><i class="lni lni-check-mark-circle"></i> Incluye el piso de 50 lugares</li>
-                            <form action="nuevocontrato.jsp?plan=2" method="get">
-                                <label>
-                                    <input type="button" value="Contratar este Plan">
-                                </label>
-                            </form>
+                            <a href="nuevocontrato.jsp?plan=2" style="color: white">Contrate este plan :D</a>
                         </ul>
                     </div>
                 </div> <!-- pricing style one -->

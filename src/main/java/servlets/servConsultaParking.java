@@ -23,11 +23,13 @@ public class servConsultaParking extends HttpServlet {
                 nro_piso = request.getParameter("txtNroPiso");
                 lugares_disponibles = acc.obtenerLugaresDisponibles(nro_piso);
                 lleno = acc.obtenerLleno(nro_piso);
+
                 request.setAttribute("nro_piso", nro_piso);
                 request.setAttribute("lugares_disponibles", lugares_disponibles);
                 request.setAttribute("lleno", lleno);
-                rd=request.getRequestDispatcher("datosmodparking.jsp");
+
             }
+            rd=request.getRequestDispatcher("datosconsultaparking.jsp");
             rd.forward(request,response);
         }
     }

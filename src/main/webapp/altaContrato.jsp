@@ -6,47 +6,40 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title> Alta Consulta </title>
+        <title> PPS - Alta Contrato </title>
         <link  rel="icon" sizes="152px" href="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" type="image/png" />
-        <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1MNdaRPn4qbuS0rG0ctlZIYkpor-5xoiZ">
+        <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1GqIVYgLDRvI1I1xvaXGKuE1xlq8lcm7r">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 
     </head>
-    <body> 
-       <div class="contenedor-form">
-
-           <div class="">
-              <form action="#">
-            </form>
-           </div>
-          
-            <div class="formulario" align= center>
-               <h1> Alta consulta</h1>
-                <h2>Ingrese los datos</h2>
-               <form action="servAltaCliente" method="POST">
-                   <label>
-                       <input name="id_cliente" type="int" placeholder="Cédula de identidad del Cliente" required >
-                       <input name="txttotal_contrato" type="Text" placeholder="Total Contrato" required>
-                       <input name="txtfecha_inicio" type="Text" placeholder="Fecha Inicio" required>
-                       <input name="txtfecha_fin" type="Text" placeholder="Fecha Fin" required>
-                       <input name="txtDescripcion" type="Text" placeholder="Descripción" required>
-                       <input name="txtestado" type="Text" placeholder="Estado" required>
-                       <input name="txttipo_Contrato" type="Text" placeholder="Tipo Contrato" required>
-                       <input type="submit"  value="Registrar Contrato" name="btnAlta">
-                   </label>
-             </form>
-            </div>
-            <div class="cancelar">
-                <a href="home.jsp"><input type="submit" value="Cancelar"></a>
-            </div>
+    <body>
+       <div align="left">
+           <a href="home.jsp"><i class="fas fa-home"></i></a>
        </div>
-           <script src="https://drive.google.com/uc?export=view&id=1Q8RX4zhEuF5DCA2tX9sOmDjrIP5Y_rhc"></script>
-           <script src="https://drive.google.com/uc?export=view&id=1gKxmxwLhdJpyZCuW8n24RE2DJ8_t1t3Q"></script>
+       <div class="formulariosGrandes">
+           <div align="center">
+               <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
+           </div>
+           <form action="servAltaContrato" method="post">
+               <label>
+                   <input name="txtCedula" type="text" placeholder="Cédula de identidad" required >
+                   <input name="txtTotalContrato" type="text" placeholder="Total del Contrato" required>
+                   <input name="txtFechaInicio" type="text" placeholder="Fecha de Inicio" required>
+                   <input name="txtFechaFin" type="text" placeholder="Fecha de Fin" required>
+                   <input name="txtDescripcion" type="text" placeholder="Descripcion" required>
+                   <input name="txtEstado" type="text" placeholder="Estado" required>
+                   <input name="txtTipoContrato" type="text" placeholder="Tipo de Contrato" required>
+                   <input type="submit"  value="Registrar Contrato" name="btnAlta">
+               </label>
+           </form>
+       </div>
        <%
-           if(request.getAttribute("verd")!=null){
-               out.println("<script>alert('Contrato del Cliente agregado');</script>");
+           if(request.getAttribute("contratok")!=null){
+               out.println("<script>alert('Contrato agregado');</script>");
            }
-           else
-               out.println("<script>alert('Contrato duplicado (ignore el mensaje si acaba de abrir la pagina)');</script>");
+           if(request.getAttribute("contratno")!=null){
+               out.println("<script>alert('Error al agregar el contrato');</script>");
+           }
        %>
     </body>
 </html>

@@ -8,6 +8,7 @@
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <mapping class="clases.ContratosEntity"/>
         <mapping class="clases.PisosEntity"/>
+        <mapping class="clases.ContratoEntity"/>
         <!-- <property name="connection.username"/> -->
         <!-- <property name="connection.password"/> -->
 

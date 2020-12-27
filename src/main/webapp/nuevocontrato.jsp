@@ -1,13 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     HttpSession sesion = request.getSession();
-    int plan = Integer.parseInt((String) request.getAttribute("plan"));
-    String precio;
+    if(sesion.getAttribute("cedula")==null){
+        response.sendRedirect("acceso.jsp?fake=true");
+    }
+    int plan = Integer.parseInt(request.getParameter("plan"));
+    String cedula = (String) sesion.getAttribute("cedula");
+    String planS = null;
+    int precio = 0;
     if(plan == 1){
-        precio="₲ 400.000";
+        precio=400000;
+        planS = "Premium";
     }
     else{
-        precio="₲ 15.000.000";
+        if(plan == 2){
+            precio=15000000;
+            planS="Ejecutivo";
+        }
+        else{
+            response.sendRedirect("acceso.jsp?fake=true");
+        }
     }
 %>
 <!DOCTYPE html>
@@ -21,7 +33,7 @@
 </head>
 <body>
 <div align="left">
-    <a href="/"><i class="fas fa-home"></i></a>
+    <a href="menu.jsp"><i class="fas fa-home"></i></a>
 </div>
 <div class="login">
     <div align="center">
@@ -29,22 +41,13 @@
     </div>
     <form action="servAltaContratoCli" method="post">
         <label>
-            <input name="txtFechaInicio" type="Text" placeholder="Fecha Inicio" required>
-            <input name="txtFechaFin" type="Text" placeholder="Fecha Fin" required>
-            <input name="txtTipoContrato" type="Text" value="<%= out.print(plan)%>" disabled>
-            <input name="txtPrecio" type="Text" value="<%= out.print(precio)%>" disabled>
-            <p>Al comprar este contrato acepta los <a href="terminosycondociones.html"> terminos y condiciones</a>.</p>
+            <input type="text" name="txtCedula" value="<%=cedula%>" readonly>
+            <input name="txtFechaInicio" type="text" placeholder="Fecha Inicio-yyyy/MM/dd" required>
+            <input name="txtTipoContrato" type="Text" value="<%=planS%>" readonly>
+            <input name="txtPrecio" type="Text" value="<%=precio%>" readonly>
             <input type="submit"  value="Registrar Contrato" name="btnAlta">
         </label>
     </form>
 </div>
-<%
-    if(request.getAttribute("verd")!=null){
-        out.println("<script>alert('Su contrato esta siendo procesado, nos pondremos en contacto con usted en unos momentos.');</script>");
-    }
-    if(request.getAttribute("verdfal")!=null){
-        out.println("<script>alert('Error al procesar su contrato, .');</script>");
-    }
-%>
 </body>
 </html>

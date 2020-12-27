@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	HttpSession sesion = request.getSession();
-    if(sesion.getAttribute("endsession")!=null){
-        response.sendRedirect("acceso.jsp");
-    }
+	if(sesion.getAttribute("cedula")==null){
+		response.sendRedirect("acceso.jsp?fake=true");
+	}
 %>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -40,33 +40,18 @@
 			<center class="profile">
 				<img src="https://drive.google.com/uc?export=view&id=1QBkejBK2bGZMByJ8TlU-uQULAox-Rd4A" alt="" width="50" height="50">
 				<p><%= sesion.getAttribute("nombre")%> <%= sesion.getAttribute("apellido")%></p>
-				<p>Tipo de Cuenta: <%= sesion.getAttribute("cuenta")%></p>
 			</center>
-
-			<li class="item" id="cars">
-				<a href="#profile" class="menu-btn">
-					<i class="fas fa-user-circle"></i><span>Vehiculos<i class="fas fa-chevron-down drop-down"></i></span>
-				</a>
-				<div class="sub-menu">
-					<a href="404.html"><span>Asociar Vehiculo</span></a>
-					<a href="404.html"><span>Eliminar Vehiculo</span></a>
-					<a href="404.html"><span>Mis vehiculos registrados</span></a>
-				</div>
-			</li>
-			<li class="item" id="profile">
-				<a href="#cars" class="menu-btn">
-					<i class="fas fa-car"></i><span>Contratos<i class="fas fa-chevron-down drop-down"></i></span>
+			<li class="item" id="contrato">
+				<a href="#contrato" class="menu-btn">
+					<i class="far fa-copy"></i><span>Contratos <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
 					<%
-                        if(sesion.getAttribute("cuenta")!=null){
-                            String cuenta = (String) sesion.getAttribute("cuenta");
-                            if(cuenta.equals(null)){
-                                System.out.print("<a href="+"\\"+"404.html"+"\\"+"><span>Crear Contrato</span></a>");
-                            }
-                            else
-                                System.out.print("<a href="+"\\"+"404.html"+"\\"+"><span>Administrar mi Contrato</span></a>");
-                        }
+						if(sesion.getAttribute("idcontrato")==null){
+							out.print("<a href=\"planes.jsp\"><i class=\"fas fa-copy\"></i><span>Nuevo Contrato</span></a>");
+						}
+						else
+							out.print("<a href=\"plancliente.jsp\"><i class=\"fas fa-copy\"></i><span>Mis Contratos</span></a>");
 					%>
 				</div>
 			</li>
@@ -75,8 +60,7 @@
 					<i class="fas fa-cog"></i><span>Configuración <i class="fas fa-chevron-down drop-down"></i></span>
 				</a>
 				<div class="sub-menu">
-					<a href="404.html"><i class="fas fa-user-circle"></i><span>Mi Cuenta</span></a>
-					<a href="passcliente.jsp"><i class="fas fa-lock"></i><span>Cambiar Contraseña</span></a>
+					<a href="micuenta.jsp"><i class="far fa-user"></i><span>Mi Cuenta</span></a>
 				</div>
 			</li>
 		</div>
@@ -90,6 +74,20 @@
 	</div>
 	<!--main container end-->
 </div>
+<%
+	if(request.getParameter("wellcome")!=null){
+		out.println("<script>alert('Bienvenido al mundo de PPS "+sesion.getAttribute("nombre")+"');</script>");
+	}
+	if(request.getAttribute("contratook")!=null){
+		response.sendRedirect("acceso.jsp?contratocreado=true");
+	}
+	if(request.getAttribute("contratono")!=null){
+		out.println("<script>alert('Error: " +request.getAttribute("contratono") +"');</script>");
+	}
+	if(request.getAttribute("contratosno")!=null){
+		out.println("<script>alert('No posee contratos');</script>");
+	}
+%>
 <!--wrapper end-->
 
 <script type="text/javascript">

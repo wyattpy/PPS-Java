@@ -34,18 +34,18 @@
             response.sendRedirect("home.jsp");
         }
         else{
-            if(nivel == 2){
-                sesion.setAttribute("nombre", request.getAttribute("nombre"));
-                sesion.setAttribute("nivel", 2);
-                response.sendRedirect("home2.jsp");
-            }
-            else{
-                out.println("<script>alert('Usuario o contraseña incorrecta, verifique sus credenciales');</script>");
-            }
+            out.println("<script>alert('Usuario o contraseña incorrecta, verifique sus credenciales');</script>");
         }
     }
-    if(request.getParameter("cerrar")!=null){
-        request.getSession().invalidate();
+    if(request.getParameter("endsession")!=null){
+        sesion.invalidate();
+    }
+    if(request.getParameter("fake")!=null){
+        out.println("<script>alert('Error. No has accedido al sistema...');</script>");
+    }
+    if(request.getParameter("Passchange")!=null){
+        out.println("<script>alert('Contraseña modificada con exito');</script>");
+        sesion.invalidate();
     }
 %>
 </body>

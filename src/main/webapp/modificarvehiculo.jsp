@@ -8,40 +8,35 @@
     <meta charset="UTF-8">
     <title> PPS </title>
     <link  rel="icon" sizes="152px" href="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" type="image/png" />
-    <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1MNdaRPn4qbuS0rG0ctlZIYkpor-5xoiZ">
+    <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1GqIVYgLDRvI1I1xvaXGKuE1xlq8lcm7r">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 </head>
 
 <body>
-
-<div class="contenedor-form">
-
-    <div class="">
-        <form action="#">
-        </form>
-    </div>
-
-    <div class="formulario" align= center>
-
-        <h1> Modificación de vehiculo </h1> <br>
-        <h2>Ingrese el vehiculo a modificar</h2>
-        <form action="servConsultaModVehiculo" method="POST">
-            <input name= "txtMatricula" type="text" placeholder="Matricula" required>
-            <input type="submit"  value="Buscar" name="btnBuscar">
-        </form>
-    </div>
-    <div class="cancelar">
-        <a href="home.jsp"><input type="submit"  value="Cancelar"></a>
-    </div>
+<div align="left">
+    <a href="home.jsp"><i class="fas fa-home"></i></a>
 </div>
-
-
-
+    <div class="login">
+        <div align="center">
+            <img src="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" alt="" width="100" height="100">
+        </div>
+        <form action="servConsultaModVehiculo" method="post">
+            <label>
+                <div align="center">
+                    <p style="font-family: 'Times New Roman'; color: black">Ingrese la matricula del Vehiculo:</p>
+                </div>
+                <input name= "txtMatricula" type="text" placeholder="Matricula" required>
+                <input type="submit"  value="Buscar" name="btnBuscar">
+            </label>
+        </form>
+    </div>
 <%
-    if(request.getAttribute("verdvvv")!=null){
+    if(request.getAttribute("modok")!=null){
         out.println("<script>alert('Vehiculo modificado');</script>");
     }
-    else
-        out.println("<script>alert('Vehiculo no modificado(ignore el mensaje si acaba de abrir la pagina)');</script>");
+    if(request.getAttribute("modno")!=null){
+        out.println("<script>alert('Vehiculo no modificado');</script>");
+    }
 %>
 </body>
 </html>

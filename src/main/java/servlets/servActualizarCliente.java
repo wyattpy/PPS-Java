@@ -32,7 +32,7 @@ public class servActualizarCliente extends HttpServlet {
                     request.setAttribute("modok", 0);
                 }
                 else{
-                    request.setAttribute("modono", 0);
+                    request.setAttribute("modno", 0);
                 }
             }
             rd=request.getRequestDispatcher("menubusqueda1.jsp");

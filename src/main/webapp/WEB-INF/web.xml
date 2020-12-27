@@ -146,11 +146,93 @@
         <servlet-name>servAltaContratoCli</servlet-name>
         <url-pattern>/servAltaContratoCli</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>servAltaContrato</servlet-name>
+        <servlet-class>servlets.servAltaContrato</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servAltaContrato</servlet-name>
+        <url-pattern>/servAltaContrato</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servConsultaParking</servlet-name>
+        <servlet-class>servlets.servConsultaParking </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servConsultaParking</servlet-name>
+        <url-pattern>/servConsultaParking</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servConsultaModParking</servlet-name>
+        <servlet-class>servlets.servConsultaModParking </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servConsultaModParking</servlet-name>
+        <url-pattern>/servConsultaModParking</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servActualizarParking</servlet-name>
+        <servlet-class>servlets.servActualizarParking</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servActualizarParking</servlet-name>
+        <url-pattern>/servActualizarParking</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>servActualizameCli</servlet-name>
+        <servlet-class>servlets.servActualizameCli</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servActualizameCli</servlet-name>
+        <url-pattern>/servActualizameCli</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servModContra</servlet-name>
+        <servlet-class>servlets.servModContra</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servModContra</servlet-name>
+        <url-pattern>/servModContra</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servBajaContrato</servlet-name>
+        <servlet-class>servlets.servBajaContrato</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servBajaContrato</servlet-name>
+        <url-pattern>/servBajaContrato</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servConsultaModContrato</servlet-name>
+        <servlet-class>servlets.servConsultaModContrato</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servConsultaModContrato</servlet-name>
+        <url-pattern>/servConsultaModContrato</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servActualizarContrato</servlet-name>
+        <servlet-class>servlets.servActualizarContrato</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servActualizarContrato</servlet-name>
+        <url-pattern>/servActualizarContrato</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servConsultaContrato</servlet-name>
+        <servlet-class>servlets.servConsultaContrato</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servConsultaContrato</servlet-name>
+        <url-pattern>/servConsultaContrato</url-pattern>
+    </servlet-mapping>
 
     <welcome-file-list>
-        <welcome-file>/webapp/index.html</welcome-file>
+        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-
     <session-config>
         <session-timeout>
             30

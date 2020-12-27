@@ -6,7 +6,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title> PPS Consulta Vihículo</title>
+    <title> PPS Consulta Vehículo</title>
     <link  rel="icon" sizes="152px" href="https://drive.google.com/uc?export=view&id=1wD2pilGb_McT5LDFCOmfQd0p53O3P8Xz" type="image/png" />
     <link rel= "stylesheet" href= "https://drive.google.com/uc?export=view&id=1GqIVYgLDRvI1I1xvaXGKuE1xlq8lcm7r">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
@@ -28,7 +28,6 @@
             <input name="txtModelo" value="<%=request.getAttribute("modelo")%>" type="text" disabled>
             <input name="txtColor" value="<%=request.getAttribute("color")%>" type="text" disabled>
             <input name="txtCliente" value="<%=request.getAttribute("cliente")%>" type="text" disabled>
-
         </label>
     </form>
 </div>

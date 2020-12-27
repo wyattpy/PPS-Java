@@ -25,7 +25,7 @@
             <div align="center">
                 <p style="font-family: 'Times New Roman'; color: black">Ingrese la Matricula del vehiculo:</p>
             </div>
-            <input name= "txtPiso" type="text" placeholder="Matricula" required>
+            <input name= "txtMatricula" type="text" placeholder="Matricula" required>
             <input type="submit"  value="Buscar" name="btnBuscar">
         </label>
     </form>

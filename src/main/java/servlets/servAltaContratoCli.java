@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.util.Calendar;
 
 @WebServlet(name = "servAltaContratoCli")
 public class servAltaContratoCli extends HttpServlet {
@@ -21,24 +22,20 @@ public class servAltaContratoCli extends HttpServlet {
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnAlta")!=null){
-                int idCliente = Integer.parseInt(request.getParameter("txtCedula"));
-                int totalContrato;
-                Date fechaInicio = Date.valueOf(request.getParameter("txtFechaInicio"));
-                Date fechaFin = Date.valueOf(request.getParameter("txtFechaFin"));
-                String tipoContrato = request.getParameter("plan");
-                if(tipoContrato.equals("Premium")){
-                    totalContrato = 400000;
-                }
-                else
-                    totalContrato = 15000000;
-                i = acc.altaContrato(idCliente,totalContrato,fechaInicio,fechaFin,"","Pendiente",tipoContrato);
+                String cedula = request.getParameter("txtCedula");
+                String totalContrato = request.getParameter("txtPrecio");
+                String fechaInicio = request.getParameter("txtFechaInicio");
+                String tipoContrato = request.getParameter("txtTipoContrato");
+                String descripcion = "nuevo";
+                String estado = "pendiente";
+                i = acc.altaContratoCli(cedula,totalContrato,fechaInicio,descripcion,estado,tipoContrato);
                 if(i!=0){
-                    request.setAttribute("verd",0);
+                    request.setAttribute("contratook",0);
                 }
                 else
-                    request.setAttribute("verdfal",0);
+                    request.setAttribute("contratono",0);
             }
-            rd=request.getRequestDispatcher("nuevocontrato.jsp");
+            rd=request.getRequestDispatcher("menu.jsp");
             rd.forward(request,response);
         }
     }

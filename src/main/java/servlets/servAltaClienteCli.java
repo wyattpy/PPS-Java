@@ -29,17 +29,30 @@ public class servAltaClienteCli extends HttpServlet {
             if(request.getParameter("btnAlta")!=null){
                 String cedula = request.getParameter("txtCedula");
                 String password = request.getParameter("txtPass");
+                String password2 = request.getParameter("txtPass2");
                 String nombre = request.getParameter("txtNombre");
                 String apellido = request.getParameter("txtApellido");
                 String telefono = request.getParameter("txtTel");
                 String direccion = request.getParameter("txtDir");
                 String correo = request.getParameter("txtCorreo");
-                i = acc.altaCliente(cedula,password,nombre,apellido,telefono,direccion,correo);
-                if(i!=1){
-                    request.setAttribute("verd",0);
+                i = acc.altaClienteCli(cedula,password,password2,nombre,apellido,telefono,direccion,correo);
+                request.setAttribute("nombre",nombre);
+                request.setAttribute("apellido",apellido);
+                request.setAttribute("cedula",cedula);
+                request.setAttribute("pass",password);
+                request.setAttribute("telefono",acc.obtenerTelefono(cedula));
+                request.setAttribute("direccion",acc.obtenerDireccion(cedula));
+                request.setAttribute("correo",acc.obtenerCorreo(cedula));
+                if(i==99){
+                    request.setAttribute("registrodu",0);
                 }
                 else
-                    request.setAttribute("alt",0);
+                    if(i==1) {
+                        request.setAttribute("registrook", 0);
+                    }
+                    else{
+                        request.setAttribute("registrono", 0);
+                    }
             }
             rd=request.getRequestDispatcher("registro.jsp");
             rd.forward(request,response);

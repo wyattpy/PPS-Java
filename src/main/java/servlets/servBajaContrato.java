@@ -17,12 +17,12 @@ public class servBajaContrato extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         int i;
         try(PrintWriter out = response.getWriter()){
-            String idContrato;
+            String cicliente;
             accionesDB acc = new accionesDB();
             RequestDispatcher rd = null;
             if(request.getParameter("btnEliminar")!=null){
-                idContrato = request.getParameter("txtContrato");
-                i = acc.bajaContrato(idContrato);
+                cicliente = request.getParameter("txtContrato");
+                i = acc.bajaContrato(cicliente);
                 if (i != 0) {
                     request.setAttribute("bajaok", 0);
                 }

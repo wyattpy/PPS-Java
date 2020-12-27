@@ -24,8 +24,8 @@
                <label>
                    <input name="txtCedula" type="text" placeholder="Cédula de identidad" required >
                    <input name="txtTotalContrato" type="text" placeholder="Total del Contrato" required>
-                   <input name="txtFechaInicio" type="text" placeholder="Fecha de Inicio" required>
-                   <input name="txtFechaFin" type="text" placeholder="Fecha de Fin" required>
+                   <input name="txtFechaInicio" type="text" placeholder="Fecha de Inicio - yyyy/MM/dd" required>
+                   <input name="txtFechaFin" type="text" placeholder="Fecha de Fin - yyyy/MM/dd" required>
                    <input name="txtDescripcion" type="text" placeholder="Descripcion" required>
                    <input name="txtEstado" type="text" placeholder="Estado" required>
                    <input name="txtTipoContrato" type="text" placeholder="Tipo de Contrato" required>

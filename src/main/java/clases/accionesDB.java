@@ -526,12 +526,12 @@ public class accionesDB {
         }
     }
 
-    public int bajaContrato(String id_contrato) {
+    public int bajaContrato(String cicliente) {
         try {
             int i;
             Class.forName(db.getDriver());
             con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getContra());
-            sql = "DELETE from public.contrato where idcontrato = '" + Integer.parseInt(id_contrato) + "'";
+            sql = "DELETE from public.contrato where cicliente = '" + Integer.parseInt(cicliente) + "'";
             pst = con.prepareStatement(sql);
             i = pst.executeUpdate();
             if(i == 1){

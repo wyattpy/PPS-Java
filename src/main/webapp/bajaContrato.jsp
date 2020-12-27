@@ -27,7 +27,7 @@
             <div align="center">
                 <p style="font-family: 'Times New Roman'; color: black">Baja de contratos</p>
             </div>
-            <input name="txtContrato" type="text" placeholder="Id Contrato" required>
+            <input name="txtContrato" type="text" placeholder="Cedula" required>
             <input type="submit" value="Eliminar" name="btnEliminar">
         </label>
     </form>

@@ -14,7 +14,7 @@
 </head>
 <body>
 <div align="left">
-    <a href="menubusqueda6.jsp"><i class="fas fa-home"></i></a>
+    <a href="modificarcontrato.jsp"><i class="fas fa-home"></i></a>
 </div>
 <div class="formulariosGrandes">
     <div align="center">
@@ -24,12 +24,12 @@
         <label>
             <input name="txtCedula" value="<%=sesion.getAttribute("cedula")%>" type="text" readonly>
             <input name="txtIdContrato" value="<%=request.getAttribute("idContrato")%>" type="text" readonly>
-            <input name="txtTotal" value="<%=request.getAttribute("total")%>" type="text" required>
-            <input name="txtFechaIni" value="<%=request.getAttribute("fechaini")%>" type="text" required>
-            <input name="txtFechaFin" value="<%=request.getAttribute("fechafin")%>" type="text" required>
-            <input name="txtEstado" value="<%=request.getAttribute("estado")%>" type="text" required>
-            <input name="txtTipo" value="<%=request.getAttribute("tipo")%>" type="text" required>
-            <input name="txtObservaciones" value="<%=request.getAttribute("observaciones")%>" type="text" required>
+            <input name="txtTotal" value="<%=request.getAttribute("total")%>" type="text" placeholder="Total" required>
+            <input name="txtFechaIni" value="<%=request.getAttribute("fechaini")%>" type="text" placeholder="Fecha de Inicio - yyyy/MM/dd" required>
+            <input name="txtFechaFin" value="<%=request.getAttribute("fechafin")%>" type="text" placeholder="Fecha de Fin - yyyy/MM/dd" required>
+            <input name="txtEstado" value="<%=request.getAttribute("estado")%>" type="text" placeholder="Estado" required>
+            <input name="txtTipo" value="<%=request.getAttribute("tipo")%>" type="text" placeholder="Tipo" required>
+            <input name="txtObservaciones" value="<%=request.getAttribute("observaciones")%>" type="text" placeholder="Observaciones" required>
             <input type="submit"  value="Modificar" name="btnMod">
         </label>
     </form>

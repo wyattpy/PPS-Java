@@ -51,7 +51,7 @@
 							out.print("<a href=\"planes.jsp\"><i class=\"fas fa-copy\"></i><span>Nuevo Contrato</span></a>");
 						}
 						else
-							out.print("<a href=\"plancliente.jsp\"><i class=\"fas fa-copy\"></i><span>Mis Contratos</span></a>");
+							out.print("<a href=\"plancliente.jsp\"><i class=\"fas fa-copy\"></i><span>Mi Contrato</span></a>");
 					%>
 				</div>
 			</li>
